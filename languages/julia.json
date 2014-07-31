@@ -1,0 +1,10 @@
+{
+  "compiler": null,
+  "extension": "jl",
+  "interpreter": {
+    "command": "julia",
+    "flags": [],
+    "version": "--version"
+  },
+  "name": "Julia"
+}

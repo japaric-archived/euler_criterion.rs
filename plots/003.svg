@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"  standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg 
+ viewBox="0 0 880 495"
+ xmlns="http://www.w3.org/2000/svg"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+
+<title>Gnuplot</title>
+<desc>Produced by GNUPLOT 4.6 patchlevel 5 </desc>
+
+<g id="gnuplot_canvas">
+
+<rect x="0" y="0" width="880" height="495" fill="none"/>
+<defs>
+
+	<circle id='gpDot' r='0.5' stroke-width='0.5'/>
+	<path id='gpPt0' stroke-width='0.222' stroke='currentColor' d='M-1,0 h2 M0,-1 v2'/>
+	<path id='gpPt1' stroke-width='0.222' stroke='currentColor' d='M-1,-1 L1,1 M1,-1 L-1,1'/>
+	<path id='gpPt2' stroke-width='0.222' stroke='currentColor' d='M-1,0 L1,0 M0,-1 L0,1 M-1,-1 L1,1 M-1,1 L1,-1'/>
+	<rect id='gpPt3' stroke-width='0.222' stroke='currentColor' x='-1' y='-1' width='2' height='2'/>
+	<rect id='gpPt4' stroke-width='0.222' stroke='currentColor' fill='currentColor' x='-1' y='-1' width='2' height='2'/>
+	<circle id='gpPt5' stroke-width='0.222' stroke='currentColor' cx='0' cy='0' r='1'/>
+	<use xlink:href='#gpPt5' id='gpPt6' fill='currentColor' stroke='none'/>
+	<path id='gpPt7' stroke-width='0.222' stroke='currentColor' d='M0,-1.33 L-1.33,0.67 L1.33,0.67 z'/>
+	<use xlink:href='#gpPt7' id='gpPt8' fill='currentColor' stroke='none'/>
+	<use xlink:href='#gpPt7' id='gpPt9' stroke='currentColor' transform='rotate(180)'/>
+	<use xlink:href='#gpPt9' id='gpPt10' fill='currentColor' stroke='none'/>
+	<use xlink:href='#gpPt3' id='gpPt11' stroke='currentColor' transform='rotate(45)'/>
+	<use xlink:href='#gpPt11' id='gpPt12' fill='currentColor' stroke='none'/>
+</defs>
+<g style="fill:none; color:white; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+</g>
+<g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<path stroke='black'  d='M96.8,422.7 L105.8,422.7 M855.0,422.7 L846.0,422.7  '/>	<g transform="translate(88.5,427.2)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>Python3</text>
+	</g>
+	<path stroke='black'  d='M96.8,393.2 L105.8,393.2 M855.0,393.2 L846.0,393.2  '/>	<g transform="translate(88.5,397.7)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>Python2</text>
+	</g>
+	<path stroke='black'  d='M96.8,363.7 L105.8,363.7 M855.0,363.7 L846.0,363.7  '/>	<g transform="translate(88.5,368.2)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>Ruby</text>
+	</g>
+	<path stroke='black'  d='M96.8,334.2 L105.8,334.2 M855.0,334.2 L846.0,334.2  '/>	<g transform="translate(88.5,338.7)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>Lua</text>
+	</g>
+	<path stroke='black'  d='M96.8,304.7 L105.8,304.7 M855.0,304.7 L846.0,304.7  '/>	<g transform="translate(88.5,309.2)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>Pypy</text>
+	</g>
+	<path stroke='black'  d='M96.8,275.2 L105.8,275.2 M855.0,275.2 L846.0,275.2  '/>	<g transform="translate(88.5,279.7)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>Node.js</text>
+	</g>
+	<path stroke='black'  d='M96.8,245.7 L105.8,245.7 M855.0,245.7 L846.0,245.7  '/>	<g transform="translate(88.5,250.2)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>Haskell</text>
+	</g>
+	<path stroke='black'  d='M96.8,216.3 L105.8,216.3 M855.0,216.3 L846.0,216.3  '/>	<g transform="translate(88.5,220.8)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>Go</text>
+	</g>
+	<path stroke='black'  d='M96.8,186.8 L105.8,186.8 M855.0,186.8 L846.0,186.8  '/>	<g transform="translate(88.5,191.3)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>C</text>
+	</g>
+	<path stroke='black'  d='M96.8,157.3 L105.8,157.3 M855.0,157.3 L846.0,157.3  '/>	<g transform="translate(88.5,161.8)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>Julia</text>
+	</g>
+	<path stroke='black'  d='M96.8,127.8 L105.8,127.8 M855.0,127.8 L846.0,127.8  '/>	<g transform="translate(88.5,132.3)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>C++</text>
+	</g>
+	<path stroke='black'  d='M96.8,98.3 L105.8,98.3 M855.0,98.3 L846.0,98.3  '/>	<g transform="translate(88.5,102.8)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>Rust</text>
+	</g>
+	<path stroke='black'  d='M96.8,68.8 L105.8,68.8 M855.0,68.8 L846.0,68.8  '/>	<g transform="translate(88.5,73.3)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>LuaJIT</text>
+	</g>
+	<path stroke='black'  d='M96.8,437.4 L96.8,428.4 M96.8,54.1 L96.8,63.1  '/>	<g transform="translate(96.8,459.9)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text> 0</text>
+	</g>
+	<path stroke='black'  d='M191.6,437.4 L191.6,428.4 M191.6,54.1 L191.6,63.1  '/>	<g transform="translate(191.6,459.9)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text> 20</text>
+	</g>
+	<path stroke='black'  d='M286.4,437.4 L286.4,428.4 M286.4,54.1 L286.4,63.1  '/>	<g transform="translate(286.4,459.9)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text> 40</text>
+	</g>
+	<path stroke='black'  d='M381.1,437.4 L381.1,428.4 M381.1,54.1 L381.1,63.1  '/>	<g transform="translate(381.1,459.9)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text> 60</text>
+	</g>
+	<path stroke='black'  d='M475.9,437.4 L475.9,428.4 M475.9,54.1 L475.9,63.1  '/>	<g transform="translate(475.9,459.9)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text> 80</text>
+	</g>
+	<path stroke='black'  d='M570.7,437.4 L570.7,428.4 M570.7,54.1 L570.7,63.1  '/>	<g transform="translate(570.7,459.9)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text> 100</text>
+	</g>
+	<path stroke='black'  d='M665.5,437.4 L665.5,428.4 M665.5,54.1 L665.5,63.1  '/>	<g transform="translate(665.5,459.9)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text> 120</text>
+	</g>
+	<path stroke='black'  d='M760.2,437.4 L760.2,428.4 M760.2,54.1 L760.2,63.1  '/>	<g transform="translate(760.2,459.9)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text> 140</text>
+	</g>
+	<path stroke='black'  d='M855.0,437.4 L855.0,428.4 M855.0,54.1 L855.0,63.1  '/>	<g transform="translate(855.0,459.9)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text> 160</text>
+	</g>
+	<path stroke='black'  d='M96.8,54.1 L96.8,437.4 L855.0,437.4 L855.0,54.1 L96.8,54.1 Z  '/>	<g transform="translate(17.6,245.8) rotate(270)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text>Input</text>
+	</g>
+	<g transform="translate(475.9,486.9)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text>Time (us)</text>
+	</g>
+	<g transform="translate(475.9,31.6)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:middle">
+		<text>003: Estimates of the medians</text>
+	</g>
+</g>
+	<g id="gnuplot_plot_1" ><title>gnuplot_plot_1</title>
+<g style="fill:none; color:red; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<g transform="translate(787.9,76.6)" style="stroke:none; fill:black; font-family:Fantasque Sans Mono; font-size:12.00pt; text-anchor:end">
+		<text>Confidence Interval</text>
+	</g>
+	<path  d='M796.2,72.1 L838.4,72.1 M796.2,67.6 L796.2,76.6 M838.4,67.6 L838.4,76.6 M813.7,422.7 L816.0,422.7 
+		M813.7,427.2 L813.7,418.2 M816.0,427.2 L816.0,418.2 M539.9,393.2 L540.0,393.2 M539.9,397.7 L539.9,388.7 
+		M540.0,397.7 L540.0,388.7 M439.2,363.7 L440.7,363.7 M439.2,368.2 L439.2,359.2 M440.7,368.2 L440.7,359.2 
+		M217.4,334.2 L217.9,334.2 M217.4,338.7 L217.4,329.7 M217.9,338.7 L217.9,329.7 M150.8,304.7 L151.0,304.7 
+		M150.8,309.2 L150.8,300.2 M151.0,309.2 L151.0,300.2 M139.6,275.2 L139.7,275.2 M139.6,279.7 L139.6,270.7 
+		M139.7,279.7 L139.7,270.7 M132.6,245.7 L132.7,245.7 M132.6,250.2 L132.6,241.2 M132.7,250.2 L132.7,241.2 
+		M132.5,216.3 L132.6,216.3 M132.5,220.8 L132.5,211.8 M132.6,220.8 L132.6,211.8 M131.4,186.8 L131.8,186.8 
+		M131.4,191.3 L131.4,182.3 M131.8,191.3 L131.8,182.3 M131.3,157.3 L131.4,157.3 M131.3,161.8 L131.3,152.8 
+		M131.4,161.8 L131.4,152.8 M131.3,127.8 L131.8,127.8 M131.3,132.3 L131.3,123.3 M131.8,132.3 L131.8,123.3 
+		M125.8,98.3 M125.8,102.8 L125.8,93.8 M125.8,102.8 L125.8,93.8 M112.5,68.8 L112.6,68.8 M112.5,73.3 
+		L112.5,64.3 M112.6,73.3 L112.6,64.3  '/>	<use xlink:href='#gpPt0' transform='translate(815.2,422.7) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(539.9,393.2) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(439.8,363.7) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(217.8,334.2) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(150.9,304.7) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(139.6,275.2) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(132.7,245.7) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(132.6,216.3) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(131.6,186.8) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(131.3,157.3) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(131.3,127.8) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(125.8,98.3) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(112.5,68.8) scale(4.50)'/>
+	<use xlink:href='#gpPt0' transform='translate(817.3,72.1) scale(4.50)'/>
+</g>
+	</g>
+<g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<path stroke='black'  d='M96.8,54.1 L96.8,437.4 L855.0,437.4 L855.0,54.1 L96.8,54.1 Z  '/></g>
+</g>
+</svg>
+

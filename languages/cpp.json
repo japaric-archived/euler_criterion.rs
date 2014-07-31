@@ -1,0 +1,11 @@
+{
+  "compiler": {
+    "command": "g++",
+    "flags": ["-O", "-Wall", "-fdiagnostics-color", "-std=gnu++11"],
+    "output": "a.out",
+    "version": "--version"
+  },
+  "extension": "cpp",
+  "interpreter": null,
+  "name": "C++"
+}

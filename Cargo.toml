@@ -1,0 +1,7 @@
+[package]
+name = "euler_criterion"
+version = "0.0.0"
+authors = ["Jorge Aparicio <japaric@linux.com>"]
+
+[dependencies.criterion]
+git = "https://github.com/japaric/criterion.rs"

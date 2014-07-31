@@ -1,0 +1,5 @@
+*.ans
+.criterion/*
+.hashes/*
+node_modules/*
+target/*

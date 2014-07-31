@@ -1,0 +1,10 @@
+{
+  "compiler": null,
+  "extension": "lua",
+  "interpreter": {
+    "command": "luajit",
+    "flags": [],
+    "version": "-v"
+  },
+  "name": "LuaJIT"
+}

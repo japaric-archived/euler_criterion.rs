@@ -1,0 +1,15 @@
+{
+  "compiler": {
+    "command": "luac",
+    "flags": [],
+    "output": "luac.out",
+    "version": "-v"
+  },
+  "extension": "lua",
+  "interpreter": {
+    "command": "lua",
+    "flags": [],
+    "version": "-v"
+  },
+  "name": "Lua"
+}

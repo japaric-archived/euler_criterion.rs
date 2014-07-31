@@ -1,0 +1,11 @@
+{
+  "compiler": {
+    "command": "ghc",
+    "flags": ["-O"],
+    "output": "*",
+    "version": "--version"
+  },
+  "extension": "hs",
+  "interpreter": null,
+  "name": "Haskell"
+}

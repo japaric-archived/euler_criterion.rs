@@ -1,0 +1,10 @@
+{
+  "compiler": null,
+  "extension": "js",
+  "interpreter": {
+    "command": "node",
+    "flags": [],
+    "version": "--version"
+  },
+  "name": "Node.js"
+}

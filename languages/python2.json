@@ -1,0 +1,10 @@
+{
+  "compiler": null,
+  "extension": "py",
+  "interpreter": {
+    "command": "python2",
+    "flags": ["-O"],
+    "version": "--version"
+  },
+  "name": "Python2"
+}

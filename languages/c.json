@@ -1,0 +1,11 @@
+{
+  "compiler": {
+    "command": "gcc",
+    "flags": ["-O", "-Wall", "-fdiagnostics-color", "-std=gnu11"],
+    "output": "a.out",
+    "version": "--version"
+  },
+  "extension": "c",
+  "interpreter": null,
+  "name": "C"
+}

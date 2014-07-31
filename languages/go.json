@@ -1,0 +1,11 @@
+{
+  "compiler": {
+    "command": "go",
+    "flags": ["build"],
+    "output": "*",
+    "version": "version"
+  },
+  "extension": "go",
+  "interpreter": null,
+  "name": "Go"
+}
