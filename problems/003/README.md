@@ -1,3 +1,6 @@
-[Largest prime factor](https://projecteuler.net/problem=3)
+[# Largest prime factor][0]
 
-![Estimates of the medians](/plots/003.svg)
+![Estimates of the medians][1]
+
+[0]: https://projecteuler.net/problem=3
+[1]: https://rawgit.com/japaric/euler_criterion.rs/master/plots/003.svg

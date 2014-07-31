@@ -1,3 +1,6 @@
-[Largest product in a series](https://projecteuler.net/problem=8)
+[# Largest product in a series][0]
 
-![Estimates of the medians](/plots/008.svg)
+![Estimates of the medians][1]
+
+[0]: https://projecteuler.net/problem=8
+[1]: https://rawgit.com/japaric/euler_criterion.rs/master/plots/008.svg

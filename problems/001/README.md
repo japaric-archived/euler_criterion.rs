@@ -1,4 +1,4 @@
-[Multiples of 3 and 5][0]
+[# Multiples of 3 and 5][0]
 
 ![Estimates of the medians][1]
 
