@@ -1,4 +1,4 @@
-[# Smallest multiple][0]
+# [Smallest multiple][0]
 
 ![Estimates of the medians][1]
 

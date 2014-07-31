@@ -1,4 +1,4 @@
-[# Summation of primes][0]
+# [Summation of primes][0]
 
 ![Estimates of the medians][1]
 

@@ -1,4 +1,4 @@
-[# Even Fibonacci numbers][0]
+# [Even Fibonacci numbers][0]
 
 ![Estimates of the medians][1]
 

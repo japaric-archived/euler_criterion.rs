@@ -1,4 +1,4 @@
-[# Special Pythagorean triplet][0]
+# [Special Pythagorean triplet][0]
 
 ![Estimates of the medians][1]
 

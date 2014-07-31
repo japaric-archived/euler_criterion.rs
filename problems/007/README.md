@@ -1,4 +1,4 @@
-[# 10001st prime][0]
+# [10001st prime][0]
 
 ![Estimates of the medians][1]
 

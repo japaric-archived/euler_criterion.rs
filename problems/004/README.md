@@ -1,4 +1,4 @@
-[# Largest palindrome product][0]
+# [Largest palindrome product][0]
 
 ![Estimates of the medians][1]
 

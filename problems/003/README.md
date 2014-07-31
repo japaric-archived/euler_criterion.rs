@@ -1,4 +1,4 @@
-[# Largest prime factor][0]
+# [Largest prime factor][0]
 
 ![Estimates of the medians][1]
 

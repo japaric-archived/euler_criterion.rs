@@ -1,4 +1,4 @@
-[# Largest product in a grid][0]
+# [Largest product in a grid][0]
 
 ![Estimates of the medians][1]
 

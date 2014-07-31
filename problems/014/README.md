@@ -1,4 +1,4 @@
-[# Longest Collatz sequence][0]
+# [Longest Collatz sequence][0]
 
 ![Estimates of the medians][1]
 

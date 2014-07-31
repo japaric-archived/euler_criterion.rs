@@ -1,4 +1,4 @@
-[# Largest product in a series][0]
+# [Largest product in a series][0]
 
 ![Estimates of the medians][1]
 
