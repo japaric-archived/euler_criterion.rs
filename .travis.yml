@@ -1,0 +1,16 @@
+language: rust
+
+before_install:
+  # This PPA has a newer version of gnuplot
+  - sudo add-apt-repository ppa:gladky-anton/precise-backports -y
+  - sudo apt-get update -qq
+
+install:
+  - sudo apt-get install -qq gnuplot
+
+script:
+  - make
+  - make test
+
+branches:
+  only: master

@@ -11,3 +11,4 @@ bench:
 
 test:
 	$(foreach src,$(srcs),$(RUSTC_NT) $(src) || exit;)
+	./check-line-length.sh
