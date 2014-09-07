@@ -1,38 +1,47 @@
 {
-    "Mean": {
-        "confidence_interval": {
-            "confidence_level": 0.95,
-            "lower_bound": 189213.440528,
-            "upper_bound": 190141.324943
-        },
-        "point_estimate": 189649.450755,
-        "standard_error": 237.244117
+  "Mean": {
+    "confidence_interval": {
+      "confidence_level": 0.95,
+      "lower_bound": 188088.782582,
+      "upper_bound": 191714.250006
     },
-    "Median": {
-        "confidence_interval": {
-            "confidence_level": 0.95,
-            "lower_bound": 188679.471698,
-            "upper_bound": 189130.433962
-        },
-        "point_estimate": 188829.650943,
-        "standard_error": 109.080427
+    "point_estimate": 189478.647957,
+    "standard_error": 984.513695
+  },
+  "Median": {
+    "confidence_interval": {
+      "confidence_level": 0.95,
+      "lower_bound": 187876.459864,
+      "upper_bound": 188044.435484
     },
-    "MedianAbsDev": {
-        "confidence_interval": {
-            "confidence_level": 0.95,
-            "lower_bound": 958.347045,
-            "upper_bound": 1622.649753
-        },
-        "point_estimate": 1339.906743,
-        "standard_error": 155.058903
+    "point_estimate": 187971.729293,
+    "standard_error": 44.937278
+  },
+  "MedianAbsDev": {
+    "confidence_interval": {
+      "confidence_level": 0.95,
+      "lower_bound": 212.121346,
+      "upper_bound": 420.9878
     },
-    "StdDev": {
-        "confidence_interval": {
-            "confidence_level": 0.95,
-            "lower_bound": 1722.844392,
-            "upper_bound": 3091.629523
-        },
-        "point_estimate": 2384.86092,
-        "standard_error": 366.194054
-    }
+    "point_estimate": 329.893885,
+    "standard_error": 59.003497
+  },
+  "Slope": {
+    "confidence_interval": {
+      "confidence_level": 0.95,
+      "lower_bound": 187803.926779,
+      "upper_bound": 187874.262042
+    },
+    "point_estimate": 187837.048323,
+    "standard_error": 17.909923
+  },
+  "StdDev": {
+    "confidence_interval": {
+      "confidence_level": 0.95,
+      "lower_bound": 525.487075,
+      "upper_bound": 16280.247079
+    },
+    "point_estimate": 9885.57226,
+    "standard_error": 4554.112392
+  }
 }

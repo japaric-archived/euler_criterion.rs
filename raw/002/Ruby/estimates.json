@@ -1,38 +1,47 @@
 {
-    "Mean": {
-        "confidence_interval": {
-            "confidence_level": 0.95,
-            "lower_bound": 1486.574784,
-            "upper_bound": 1495.158776
-        },
-        "point_estimate": 1490.730192,
-        "standard_error": 2.191126
+  "Mean": {
+    "confidence_interval": {
+      "confidence_level": 0.95,
+      "lower_bound": 1424.03295,
+      "upper_bound": 1445.991506
     },
-    "Median": {
-        "confidence_interval": {
-            "confidence_level": 0.95,
-            "lower_bound": 1479.348188,
-            "upper_bound": 1490.531756
-        },
-        "point_estimate": 1483.71772,
-        "standard_error": 3.087435
+    "point_estimate": 1433.486304,
+    "standard_error": 5.711138
+  },
+  "Median": {
+    "confidence_interval": {
+      "confidence_level": 0.95,
+      "lower_bound": 1420.267884,
+      "upper_bound": 1421.647024
     },
-    "MedianAbsDev": {
-        "confidence_interval": {
-            "confidence_level": 0.95,
-            "lower_bound": 14.314552,
-            "upper_bound": 27.046235
-        },
-        "point_estimate": 20.736857,
-        "standard_error": 3.410519
+    "point_estimate": 1420.84893,
+    "standard_error": 0.335799
+  },
+  "MedianAbsDev": {
+    "confidence_interval": {
+      "confidence_level": 0.95,
+      "lower_bound": 1.766238,
+      "upper_bound": 3.296024
     },
-    "StdDev": {
-        "confidence_interval": {
-            "confidence_level": 0.95,
-            "lower_bound": 18.181929,
-            "upper_bound": 26.097214
-        },
-        "point_estimate": 22.07558,
-        "standard_error": 2.041943
-    }
+    "point_estimate": 2.25783,
+    "standard_error": 0.361461
+  },
+  "Slope": {
+    "confidence_interval": {
+      "confidence_level": 0.95,
+      "lower_bound": 1419.536838,
+      "upper_bound": 1420.142599
+    },
+    "point_estimate": 1419.81213,
+    "standard_error": 0.154317
+  },
+  "StdDev": {
+    "confidence_interval": {
+      "confidence_level": 0.95,
+      "lower_bound": 18.428175,
+      "upper_bound": 85.291388
+    },
+    "point_estimate": 57.640214,
+    "standard_error": 16.840702
+  }
 }
