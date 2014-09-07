@@ -47,23 +47,27 @@ pub fn all() -> Vec<Language> {
                 Err(e) => fail!("`{}`: {}", file_, e),
                 Ok(string) => match json::decode::<Language>(string.as_slice()) {
                     Err(e) => fail!("`{}`: {}", file_, e),
-                    Ok(language) => {
+                    Ok(mut language) => {
                         info!("Found {}", language.name);
 
-                        match language.compiler() {
-                            Some(compiler) => {
+                        match language.compiler {
+                            Some(ref mut compiler) => {
+                                compiler.fetch_version();
+
                                 File::create(&version_dir.join(compiler.command())).
-                                    write_str(compiler.get_version().as_slice()).
+                                    write_str(compiler.version()).
                                     ok().
                                     expect("Couldn't write to versions directory");
                             },
                             None => {},
                         }
 
-                        match language.interpreter() {
-                            Some(interpreter) => {
+                        match language.interpreter {
+                            Some(ref mut interpreter) => {
+                                interpreter.fetch_version();
+
                                 File::create(&version_dir.join(interpreter.command())).
-                                    write_str(interpreter.get_version().as_slice()).
+                                    write_str(interpreter.version()).
                                     ok().
                                     expect("Couldn't write to versions directory");
                             },

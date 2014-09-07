@@ -43,18 +43,25 @@ impl Compiler {
 
     }
 
-    pub fn get_version(&self) -> String {
+    // Replaces the version flag field (e.g. `-v`) by its output (`rustc 0.12.0-pre`)
+    pub fn fetch_version(&mut self) {
         let mut cmd = Command::new(self.command.as_slice());
         cmd.arg(self.version.as_slice());
 
         match cmd.output() {
             Err(_) => fail!("Couldn't get version of {}", self.command),
             Ok(ProcessOutput { status: exit, output: out, error: err }) => if exit.success() {
-                String::from_utf8(out).unwrap().append(String::from_utf8(err).unwrap().as_slice())
+                self.version =
+                    String::from_utf8(out).unwrap().
+                        append(String::from_utf8(err).unwrap().as_slice());
             } else {
                 fail!("{}:\n{}", cmd, String::from_utf8(err).unwrap());
             }
         }
+    }
+
+    pub fn version(&self) -> &str {
+        self.version.as_slice()
     }
 }
 

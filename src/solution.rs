@@ -34,12 +34,12 @@ impl<'l, 'p> Solution<'l, 'p> {
                         expect("Couldn't create .hashes directory");
 
                     let string = match language.compiler() {
-                        Some(compiler) => string.append(compiler.get_version().as_slice()),
+                        Some(compiler) => string.append(compiler.version()),
                         None => string,
                     };
 
                     let string = match language.interpreter() {
-                        Some(interpreter) => string.append(interpreter.get_version().as_slice()),
+                        Some(interpreter) => string.append(interpreter.version()),
                         None => string,
                     };
 
