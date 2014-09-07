@@ -1,5 +1,6 @@
 *.ans
 .criterion/*
 .hashes/*
+Cargo.lock
 node_modules/*
 target/*

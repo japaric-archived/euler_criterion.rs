@@ -4,10 +4,10 @@ srcs=$(shell find problems -name '*.rs')
 .PHONY: all bench test
 
 all:
-	cargo build --release -u
+	cargo build --release
 
 bench:
-	RUST_LOG=euler_criterion=info target/release/euler_criterion
+	RUST_LOG=euler_criterion=info cargo run --release
 
 test:
 	$(foreach src,$(srcs),$(RUSTC_NT) $(src) || exit;)
