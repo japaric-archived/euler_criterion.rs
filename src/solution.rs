@@ -1,4 +1,4 @@
-use std::io::{File,UserDir,fs};
+use std::io::{File, UserDir, fs};
 use std::hash;
 
 use language::Language;

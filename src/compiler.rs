@@ -1,5 +1,5 @@
-use std::io::{fs,TempDir};
-use std::io::process::{Command,InheritFd,ProcessOutput};
+use std::io::{fs, TempDir};
+use std::io::process::{Command, InheritFd, ProcessOutput};
 
 #[deriving(Decodable)]
 pub struct Compiler {

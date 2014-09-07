@@ -1,5 +1,5 @@
 use serialize::json;
-use std::io::{fs,File,UserDir};
+use std::io::{fs, File, UserDir};
 
 use compiler::Compiler;
 use interpreter::Interpreter;

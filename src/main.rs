@@ -5,7 +5,7 @@ extern crate criterion;
 extern crate serialize;
 
 use criterion::Criterion;
-use std::io::{UserDir,fs};
+use std::io::{UserDir, fs};
 
 use executable::Executable;
 use problem::Problem;

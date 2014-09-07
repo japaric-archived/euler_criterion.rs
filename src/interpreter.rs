@@ -1,4 +1,4 @@
-use std::io::process::{Command,ProcessOutput};
+use std::io::process::{Command, ProcessOutput};
 use std::os;
 
 #[deriving(Decodable)]
