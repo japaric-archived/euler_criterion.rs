@@ -1,24 +1,27 @@
+[![Build Status][status]](https://travis-ci.org/japaric/euler_criterion.rs)
+
 # euler_criterion.rs
 
 This is testing ground for the "external benchmarking" feature of
-[criterion.rs][0].
+[criterion.rs][criterion].
 
-Here I benchmark solutions to [Project Euler problems][1] written in several
-programming languages and (for now) **crudely** compare them in a single plot.
+Here I benchmark solutions to [Project Euler problems][euler] written in
+several programming languages and (for now) **crudely** compare them in a
+single plot.
 
 ## Contents
 
-Plot + source files: [See directories under the problems directory][2]
+Plot + source files: [See directories under the problems directory][problems]
 
 Raw data (estimates of the mean/median/etc, all missing units are nanoseconds):
-[See the raw directory][3]
+[See the raw directory][raw]
 (This is just a fraction of the data that criterion generates)
 
 Details (which compiler/interpreter/flags) about the benchmarked languages:
-[See the languages directory][4]
+[See the languages directory][languages]
 
-Version of each compiler/interpreter: [See the versions directory][5] or run
-`head versions/*`
+Version of each compiler/interpreter: [See the versions directory][versions] or
+run `head versions/*`
 
 ## How do I repeat these benchmarks?
 
@@ -41,9 +44,10 @@ license.
 
 See LICENSE-APACHE and LICENSE-MIT for more details.
 
-[0]: https://github.com/japaric/criterion.rs
-[1]: https://projecteuler.net/problems
-[2]: /problems/001
-[3]: /raw/001/Rust/estimates.json
-[4]: /languages/rust.json
-[5]: /versions/rustc
+[criterion]: https://github.com/japaric/criterion.rs
+[euler]: https://projecteuler.net/problems
+[languages]: /languages/rust.json
+[problems]: /problems/001
+[raw]: /raw/001/Rust/estimates.json
+[status]: https://travis-ci.org/japaric/euler_criterion.rs.svg?branch=master
+[versions]: /versions/rustc
