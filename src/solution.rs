@@ -1,5 +1,6 @@
-use std::io::{File, UserDir, fs};
 use std::hash;
+use std::io::fs::PathExtensions;
+use std::io::{File, UserDir, fs};
 
 use language::Language;
 use problem::Problem;

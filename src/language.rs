@@ -1,4 +1,5 @@
 use serialize::json;
+use std::io::fs::PathExtensions;
 use std::io::{fs, File, UserDir};
 
 use compiler::Compiler;
