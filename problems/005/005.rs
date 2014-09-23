@@ -6,7 +6,7 @@ use num::integer;
 use std::io::stdio;
 use std::os;
 
-fn solution() -> uint {
+fn solution() -> u64 {
     range(3, 21).fold(2, |p, f| integer::lcm(p, f))
 }
 

@@ -40,10 +40,10 @@
 		<text>Haskell</text>
 	</g>
 	<path stroke='black'  d='M96.8,408.9 L105.8,408.9  '/>	<g transform="translate(88.5,413.4)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
-		<text>Go</text>
+		<text>Rust</text>
 	</g>
 	<path stroke='black'  d='M96.8,307.6 L105.8,307.6  '/>	<g transform="translate(88.5,312.1)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
-		<text>Rust</text>
+		<text>Go</text>
 	</g>
 	<path stroke='black'  d='M96.8,206.2 L105.8,206.2  '/>	<g transform="translate(88.5,210.7)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
 		<text>C</text>
@@ -82,10 +82,10 @@
 		<text>1.55</text>
 	</g>
 	<path stroke='black'  d='M1187.2,408.9 L1178.2,408.9  '/>	<g transform="translate(1195.5,413.4)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:start">
-		<text>1.46</text>
+		<text>1.35</text>
 	</g>
 	<path stroke='black'  d='M1187.2,307.6 L1178.2,307.6  '/>	<g transform="translate(1195.5,312.1)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:start">
-		<text>1.33</text>
+		<text>1.19</text>
 	</g>
 	<path stroke='black'  d='M1187.2,206.2 L1178.2,206.2  '/>	<g transform="translate(1195.5,210.7)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:start">
 		<text>1.00</text>
@@ -113,11 +113,11 @@
 	<g transform="translate(1120.1,76.6)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
 		<text>Confidence Interval</text>
 	</g>
-	<path  d='M1128.4,72.1 L1170.6,72.1 M1038.8,611.7 L1039.2,611.7 M862.3,510.3 L862.9,510.3 M783.2,408.9 L783.5,408.9 
-		M652.7,307.6 L653.0,307.6 M273.5,206.2 L273.8,206.2 M272.8,104.8 L273.1,104.8  '/>	<use xlink:href='#gpPt6' transform='translate(1039.0,611.7) scale(3.38)'/>
+	<path  d='M1128.4,72.1 L1170.6,72.1 M1038.8,611.7 L1039.2,611.7 M862.3,510.3 L862.9,510.3 M670.6,408.9 L680.1,408.9 
+		M507.7,307.6 L508.6,307.6 M273.5,206.2 L273.8,206.2 M272.8,104.8 L273.1,104.8  '/>	<use xlink:href='#gpPt6' transform='translate(1039.0,611.7) scale(3.38)'/>
 	<use xlink:href='#gpPt6' transform='translate(862.5,510.3) scale(3.38)'/>
-	<use xlink:href='#gpPt6' transform='translate(783.3,408.9) scale(3.38)'/>
-	<use xlink:href='#gpPt6' transform='translate(652.8,307.6) scale(3.38)'/>
+	<use xlink:href='#gpPt6' transform='translate(674.1,408.9) scale(3.38)'/>
+	<use xlink:href='#gpPt6' transform='translate(508.2,307.6) scale(3.38)'/>
 	<use xlink:href='#gpPt6' transform='translate(273.6,206.2) scale(3.38)'/>
 	<use xlink:href='#gpPt6' transform='translate(272.9,104.8) scale(3.38)'/>
 	<use xlink:href='#gpPt6' transform='translate(1149.5,72.1) scale(3.38)'/>

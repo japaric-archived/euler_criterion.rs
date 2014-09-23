@@ -6,7 +6,7 @@ import "os"
 import "strconv"
 import "time"
 
-func gcd(a int, b int) int {
+func gcd(a uint64, b uint64) uint64 {
     if a < b {
         temp := a
         a = b
@@ -23,14 +23,14 @@ func gcd(a int, b int) int {
     return b
 }
 
-func lcm(a int, b int) int {
+func lcm(a uint64, b uint64) uint64 {
     return a * b / gcd(a, b)
 }
 
-func solution() int {
-    n := 2
+func solution() uint64 {
+    n := uint64(2)
 
-    for i := 3; i < 21; i++ {
+    for i := uint64(3); i < 21; i++ {
         n = lcm(n, i)
     }
 
