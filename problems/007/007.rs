@@ -6,12 +6,12 @@ use std::io::stdio;
 use std::os;
 
 struct Primes {
-    map: HashMap<uint, uint>,
-    n: uint,
+    map: HashMap<u32, u32>,
+    n: u32,
 }
 
-impl Iterator<uint> for Primes {
-    fn next(&mut self) -> Option<uint> {
+impl Iterator<u32> for Primes {
+    fn next(&mut self) -> Option<u32> {
         loop {
             self.n += 1;
 
@@ -44,7 +44,7 @@ fn primes(capacity: uint) -> Primes {
     }
 }
 
-fn solution() -> uint {
+fn solution() -> u32 {
     let target = 10_000;
 
     primes(target).nth(target).unwrap()

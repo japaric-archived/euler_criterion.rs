@@ -6,10 +6,10 @@ import "os"
 import "strconv"
 import "time"
 
-func solution() int {
-    i, map_, n := 0, make(map[int]int), 10000
+func solution() uint32 {
+    i, map_, n := uint32(0), make(map[uint32]uint32), uint32(10000)
 
-    for q := 2;; q++ {
+    for q := uint32(2);; q++ {
         p := map_[q]
 
         if p == 0 {

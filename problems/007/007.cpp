@@ -1,3 +1,4 @@
+#include<cstdint>
 #include<cstring>
 #include<ctime>
 #include<iostream>
@@ -6,12 +7,12 @@
 
 using namespace std;
 
-int solution() {
-  int i = 0, n = 10000;
-  unordered_map<int, int> map;
+uint32_t solution() {
+  uint32_t i = 0, n = 10000;
+  unordered_map<uint32_t, uint32_t> map;
 
-  for (int q = 2;; q++) {
-    int p = map[q];
+  for (uint32_t q = 2;; q++) {
+    uint32_t p = map[q];
 
     if (p == 0) {
       map[q * q] = q;
@@ -22,7 +23,7 @@ int solution() {
         i += 1;
       }
     } else {
-      int x = p + q;
+      uint32_t x = p + q;
 
       while (map[x] != 0) {
         x += p;
