@@ -1,3 +1,4 @@
+#include<cstdint>
 #include<cstring>
 #include<ctime>
 #include<iostream>
@@ -5,8 +6,8 @@
 
 using namespace std;
 
-bool isPalindrome(int n) {
-  int reversed = 0, temp = n;
+bool isPalindrome(uint32_t n) {
+  uint32_t reversed = 0, temp = n;
 
   while (temp != 0) {
     reversed = 10 * reversed + temp % 10;
@@ -16,12 +17,12 @@ bool isPalindrome(int n) {
   return reversed == n;
 }
 
-int solution() {
-  int max = 0;
+uint32_t solution() {
+  uint32_t max = 0;
 
-  for (int a = 100; a < 1000; a++)
-    for (int b = 100; b < a; b++) {
-      int p = a * b;
+  for (uint32_t a = 100; a < 1000; a++)
+    for (uint32_t b = 100; b < a; b++) {
+      uint32_t p = a * b;
 
       if (p > max && isPalindrome(p))
         max = p;

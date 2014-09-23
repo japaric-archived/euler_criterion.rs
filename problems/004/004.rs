@@ -4,7 +4,7 @@ extern crate time;
 use std::io::stdio;
 use std::os;
 
-fn is_palindrome(n: uint) -> bool {
+fn is_palindrome(n: u32) -> bool {
     let (mut reversed, mut temp) = (0, n);
 
     while temp != 0 {
@@ -15,7 +15,7 @@ fn is_palindrome(n: uint) -> bool {
     reversed == n
 }
 
-fn solution() -> uint {
+fn solution() -> u32 {
     let mut max = 0;
 
     for a in range(100, 1_000) {

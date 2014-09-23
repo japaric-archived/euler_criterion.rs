@@ -6,8 +6,8 @@ import "os"
 import "strconv"
 import "time"
 
-func isPalindrome(n int) bool {
-    reversed, temp := 0, n
+func isPalindrome(n uint32) bool {
+    reversed, temp := uint32(0), n
 
     for temp != 0 {
         reversed = 10 * reversed + temp % 10;
@@ -17,11 +17,11 @@ func isPalindrome(n int) bool {
     return reversed == n;
 }
 
-func solution() int {
-    max := 0
+func solution() uint32 {
+    max := uint32(0)
 
-    for a := 100; a < 1000; a++ {
-        for b := 100; b < a; b++ {
+    for a := uint32(100); a < 1000; a++ {
+        for b := uint32(100); b < a; b++ {
             p := a * b
 
             if p > max && isPalindrome(p) {

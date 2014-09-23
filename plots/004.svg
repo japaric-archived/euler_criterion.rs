@@ -40,87 +40,58 @@
 		<text>Go</text>
 	</g>
 	<path stroke='black'  d='M96.8,408.9 L105.8,408.9  '/>	<g transform="translate(88.5,413.4)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
-		<text>Rust</text>
-	</g>
-	<path stroke='black'  d='M96.8,307.6 L105.8,307.6  '/>	<g transform="translate(88.5,312.1)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
 		<text>Julia</text>
 	</g>
-	<path stroke='black'  d='M96.8,206.2 L105.8,206.2  '/>	<g transform="translate(88.5,210.7)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
-		<text>C</text>
+	<path stroke='black'  d='M96.8,307.6 L105.8,307.6  '/>	<g transform="translate(88.5,312.1)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
+		<text>Rust</text>
 	</g>
-	<path stroke='black'  d='M96.8,104.8 L105.8,104.8  '/>	<g transform="translate(88.5,109.3)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
+	<path stroke='black'  d='M96.8,206.2 L105.8,206.2  '/>	<g transform="translate(88.5,210.7)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
 		<text>C++</text>
 	</g>
-</g>
-<g style="fill:none; color:gray; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M96.8,662.4 L96.8,54.1  '/></g>
-<g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='black'  d='M96.8,662.4 L96.8,653.4  '/>	<g transform="translate(96.8,684.9)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:middle">
-		<text> 0.6</text>
+	<path stroke='black'  d='M96.8,104.8 L105.8,104.8  '/>	<g transform="translate(88.5,109.3)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
+		<text>C</text>
 	</g>
 </g>
 <g style="fill:none; color:gray; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M252.6,662.4 L252.6,54.1  '/></g>
+	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M240.2,662.4 L240.2,54.1  '/></g>
 <g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='black'  d='M252.6,662.4 L252.6,653.4  '/>	<g transform="translate(252.6,684.9)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:middle">
-		<text> 0.7</text>
-	</g>
-</g>
+	<path stroke='black'  d='M240.2,662.4 L240.2,657.9  '/></g>
 <g style="fill:none; color:gray; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M408.3,662.4 L408.3,54.1  '/></g>
+	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M361.5,662.4 L361.5,54.1  '/></g>
 <g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='black'  d='M408.3,662.4 L408.3,653.4  '/>	<g transform="translate(408.3,684.9)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:middle">
-		<text> 0.8</text>
-	</g>
-</g>
+	<path stroke='black'  d='M361.5,662.4 L361.5,657.9  '/></g>
 <g style="fill:none; color:gray; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M564.1,662.4 L564.1,54.1  '/></g>
+	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M466.5,662.4 L466.5,54.1  '/></g>
 <g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='black'  d='M564.1,662.4 L564.1,653.4  '/>	<g transform="translate(564.1,684.9)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:middle">
-		<text> 0.9</text>
-	</g>
-</g>
+	<path stroke='black'  d='M466.5,662.4 L466.5,657.9  '/></g>
 <g style="fill:none; color:gray; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M719.9,662.4 L719.9,54.1  '/></g>
+	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M559.1,662.4 L559.1,54.1  '/></g>
 <g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='black'  d='M719.9,662.4 L719.9,653.4  '/>	<g transform="translate(719.9,684.9)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:middle">
+	<path stroke='black'  d='M559.1,662.4 L559.1,657.9  '/></g>
+<g style="fill:none; color:gray; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M642.0,662.4 L642.0,54.1  '/></g>
+<g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
+	<path stroke='black'  d='M642.0,662.4 L642.0,653.4  '/>	<g transform="translate(642.0,684.9)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:middle">
 		<text> 1</text>
-	</g>
-</g>
-<g style="fill:none; color:gray; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M875.7,662.4 L875.7,54.1  '/></g>
-<g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='black'  d='M875.7,662.4 L875.7,653.4  '/>	<g transform="translate(875.7,684.9)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:middle">
-		<text> 1.1</text>
-	</g>
-</g>
-<g style="fill:none; color:gray; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M1031.4,662.4 L1031.4,81.1 M1031.4,63.1 L1031.4,54.1  '/></g>
-<g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='black'  d='M1031.4,662.4 L1031.4,653.4  '/>	<g transform="translate(1031.4,684.9)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:middle">
-		<text> 1.2</text>
 	</g>
 </g>
 <g style="fill:none; color:gray; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
 	<path stroke='gray' stroke-dasharray=' 2,4' class="gridline"  d='M1187.2,662.4 L1187.2,54.1  '/></g>
 <g style="fill:none; color:black; stroke:currentColor; stroke-width:1.00; stroke-linecap:butt; stroke-linejoin:miter">
-	<path stroke='black'  d='M1187.2,662.4 L1187.2,653.4  '/>	<g transform="translate(1187.2,684.9)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:middle">
-		<text> 1.3</text>
-	</g>
-	<path stroke='black'  d='M1187.2,611.7 L1178.2,611.7  '/>	<g transform="translate(1195.5,616.2)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:start">
-		<text>1.82</text>
+	<path stroke='black'  d='M1187.2,662.4 L1187.2,657.9 M1187.2,611.7 L1178.2,611.7  '/>	<g transform="translate(1195.5,616.2)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:start">
+		<text>2.14</text>
 	</g>
 	<path stroke='black'  d='M1187.2,510.3 L1178.2,510.3  '/>	<g transform="translate(1195.5,514.8)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:start">
-		<text>1.55</text>
+		<text>1.58</text>
 	</g>
 	<path stroke='black'  d='M1187.2,408.9 L1178.2,408.9  '/>	<g transform="translate(1195.5,413.4)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:start">
-		<text>1.22</text>
+		<text>1.24</text>
 	</g>
 	<path stroke='black'  d='M1187.2,307.6 L1178.2,307.6  '/>	<g transform="translate(1195.5,312.1)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:start">
-		<text>1.06</text>
+		<text>1.05</text>
 	</g>
 	<path stroke='black'  d='M1187.2,206.2 L1178.2,206.2  '/>	<g transform="translate(1195.5,210.7)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:start">
-		<text>1.00</text>
+		<text>1.05</text>
 	</g>
 	<path stroke='black'  d='M1187.2,104.8 L1178.2,104.8  '/>	<g transform="translate(1195.5,109.3)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:start">
 		<text>1.00</text>
@@ -145,13 +116,13 @@
 	<g transform="translate(1120.1,76.6)" style="stroke:none; fill:black; font-family:Helvetica; font-size:12.00pt; text-anchor:end">
 		<text>Confidence Interval</text>
 	</g>
-	<path  d='M1128.4,72.1 L1170.6,72.1 M1038.9,611.7 L1050.9,611.7 M773.8,510.3 L774.4,510.3 M428.8,408.9 L431.5,408.9 
-		M259.0,307.6 L259.2,307.6 M198.8,206.2 L199.6,206.2 M198.7,104.8 L199.4,104.8  '/>	<use xlink:href='#gpPt6' transform='translate(1046.2,611.7) scale(3.38)'/>
-	<use xlink:href='#gpPt6' transform='translate(774.0,510.3) scale(3.38)'/>
-	<use xlink:href='#gpPt6' transform='translate(430.4,408.9) scale(3.38)'/>
-	<use xlink:href='#gpPt6' transform='translate(259.1,307.6) scale(3.38)'/>
-	<use xlink:href='#gpPt6' transform='translate(199.2,206.2) scale(3.38)'/>
-	<use xlink:href='#gpPt6' transform='translate(199.1,104.8) scale(3.38)'/>
+	<path  d='M1128.4,72.1 L1170.6,72.1 M788.5,611.7 L793.6,611.7 M556.6,510.3 L557.1,510.3 M366.1,408.9 L366.2,408.9 
+		M234.9,307.6 L236.8,307.6 M229.7,206.2 L230.4,206.2 M194.2,104.8 L195.6,104.8  '/>	<use xlink:href='#gpPt6' transform='translate(791.6,611.7) scale(3.38)'/>
+	<use xlink:href='#gpPt6' transform='translate(556.8,510.3) scale(3.38)'/>
+	<use xlink:href='#gpPt6' transform='translate(366.1,408.9) scale(3.38)'/>
+	<use xlink:href='#gpPt6' transform='translate(236.0,307.6) scale(3.38)'/>
+	<use xlink:href='#gpPt6' transform='translate(230.0,206.2) scale(3.38)'/>
+	<use xlink:href='#gpPt6' transform='translate(194.9,104.8) scale(3.38)'/>
 	<use xlink:href='#gpPt6' transform='translate(1149.5,72.1) scale(3.38)'/>
 </g>
 	</g>
