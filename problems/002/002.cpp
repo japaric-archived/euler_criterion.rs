@@ -1,3 +1,4 @@
+#include<cstdint>
 #include<cstring>
 #include<ctime>
 #include<iostream>
@@ -5,8 +6,8 @@
 
 using namespace std;
 
-int solution() {
-  int sum = 0, curr = 1, next = 2;
+int32_t solution() {
+  int32_t sum = 0, curr = 1, next = 2;
 
   while (curr < 4000000) {
     if (curr % 2 == 0)

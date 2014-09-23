@@ -6,8 +6,8 @@ import "os"
 import "strconv"
 import "time"
 
-func solution() int {
-    sum, curr, next := 0, 1, 2
+func solution() uint64 {
+    sum, curr, next := uint64(0), uint64(1), uint64(2)
 
     for curr < 4000000 {
         if curr % 2 == 0 {

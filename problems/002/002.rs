@@ -4,7 +4,7 @@ extern crate time;
 use std::io::stdio;
 use std::os;
 
-fn solution() -> uint {
+fn solution() -> u64 {
     let (mut sum, mut curr, mut next) = (0, 1, 2);
 
     while curr < 4000000 {
@@ -17,33 +17,33 @@ fn solution() -> uint {
         curr = temp;
     }
 
-    // XXX Compiler don't be an smart ass! Don't optimize me away!
+    // DON'T OPTIMIZE ME AWAY!
     test::black_box(&mut sum);
 
     sum
 }
 
-// XXX Fancier, but 40% slower
+// XXX Fancier, but 5% slower
 //struct Fibonacci {
-    //curr: uint,
-    //next: uint,
+    //curr: u64,
+    //next: u64,
 //}
 
 //fn fibonacci() -> Fibonacci {
     //Fibonacci { curr: 1, next: 2 }
 //}
 
-//impl Iterator<uint> for Fibonacci {
-    //fn next(&mut self) -> Option<uint> {
+//impl Iterator<u64> for Fibonacci {
+    //fn next(&mut self) -> Option<u64> {
         //use std::mem;
 
-        //let Fibonacci { curr: curr, next: next } = *self;
+        //let &Fibonacci { curr: curr, next: next } = self;
 
         //Some(mem::replace(&mut self.curr, mem::replace(&mut self.next, curr + next)))
     //}
 //}
 
-//fn solution() -> uint {
+//fn solution() -> u64 {
     //use std::iter::AdditiveIterator;
 
     //fibonacci().

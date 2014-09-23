@@ -1,10 +1,11 @@
+#include<stdint.h>
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
 
-int solution() {
-  int sum = 0, curr = 1, next = 2;
+uint32_t solution() {
+  uint32_t sum = 0, curr = 1, next = 2;
 
   while (curr < 4000000) {
     if (curr % 2 == 0)
@@ -20,7 +21,7 @@ int solution() {
 
 int main(int argc, char *argv[]) {
   if (argc == 2 && strcmp(argv[1], "-a") == 0) {
-    printf("%d\n", solution());
+    printf("%u\n", solution());
     return 0;
   }
 
