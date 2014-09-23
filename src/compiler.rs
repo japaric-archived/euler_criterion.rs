@@ -23,7 +23,7 @@ impl Compiler {
             expect("Couldn't copy the source file");
 
         let mut cmd = Command::new(self.command.as_slice());
-        cmd.args(self.flags.as_slice()).
+        cmd.args(self.flags[]).
             arg(basename).
             cwd(temp_dir.path()).
             stdout(InheritFd(1)).

@@ -29,7 +29,7 @@ fn main() {
     let contents = File::open(&Path::new("008.txt")).read_to_string().unwrap();
     let contents = contents.as_slice();
 
-    match os::args().as_slice() {
+    match os::args()[] {
         [_, ref flag] if flag.as_slice() == "-a" => return println!("{}", solution(contents)),
         _ => {},
     }

@@ -9,7 +9,7 @@ fn solution() -> uint {
 }
 
 fn main() {
-    match os::args().as_slice() {
+    match os::args()[] {
         [_, ref flag] if flag.as_slice() == "-a" => return println!("{}", solution()),
         _ => {},
     }

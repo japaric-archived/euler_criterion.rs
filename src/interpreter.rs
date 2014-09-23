@@ -16,7 +16,7 @@ impl Interpreter {
     pub fn execute(&self, source: &Path) -> Command {
         let cwd = os::getcwd();
         let mut cmd = Command::new(self.command.as_slice());
-        cmd.args(self.flags.as_slice()).arg(cwd.join(source));
+        cmd.args(self.flags[]).arg(cwd.join(source));
 
         cmd
     }

@@ -30,7 +30,7 @@ fn collatz_length(n: uint, lengths: &mut [uint]) -> uint {
 }
 
 fn main() {
-    match os::args().as_slice() {
+    match os::args()[] {
         [_, ref flag] if flag.as_slice() == "-a" => return println!("{}", solution()),
         _ => {},
     }

@@ -76,7 +76,7 @@ impl<'s, 'l, 'p> Executable<'s, 'l, 'p> {
         info!("{}: Validating {}", pid, name)
         match self.cmd.clone().cwd(pid_dir).arg("-a").stderr(InheritFd(2)).output() {
             Err(_) => fail!("Runtime error"),
-            Ok(ProcessOutput { output: out, .. }) => Some(out.as_slice() == answer)
+            Ok(ProcessOutput { output: out, .. }) => Some(out[] == answer)
         }
     }
 }
