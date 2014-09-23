@@ -1,7 +1,7 @@
 extern crate test;
 extern crate time;
 
-use std::io::{stdio,File};
+use std::io::{stdio, File};
 use std::os;
 
 enum Direction {
@@ -25,13 +25,14 @@ impl Direction {
 }
 
 struct Grid {
-    data: Vec<uint>,
+    data: Vec<u32>,
     size: uint,
 }
 
 impl Grid {
     fn from_str(grid: &str) -> Grid {
         let size = grid.lines().count();
+
         assert!(grid.lines().all(|line| line.words().count() == size), "Grid is not square");
 
         let mut data = Vec::with_capacity(size * size);
@@ -47,9 +48,9 @@ impl Grid {
         }
     }
 
-    fn get(&self, row: uint, col: uint) -> Option<uint> {
+    fn get(&self, row: uint, col: uint) -> Option<u32> {
         if row < self.size && col < self.size {
-            Some(self.data[row * self.size + col])
+            Some(unsafe { *self.data[].unsafe_get(row * self.size + col) })
         } else {
             None
         }
@@ -60,7 +61,7 @@ impl Grid {
         (row, col): (uint, uint),
         direction: Direction,
         window: uint
-    ) -> Option<uint> {
+    ) -> Option<u32> {
         let (row_step, col_step) = direction.step();
         let mut p = match self.get(row, col) {
             Some(elem) => elem,
@@ -78,7 +79,7 @@ impl Grid {
     }
 }
 
-fn solution(grid: &str) -> uint {
+fn solution(grid: &str) -> u32 {
     let grid = Grid::from_str(grid);
 
     range(0, grid.size).fold(0, |max, row| {
