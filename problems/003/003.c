@@ -1,12 +1,13 @@
+#include<stdint.h>
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include<time.h>
 
-int solution() {
-  long n = 600851475143;
+uint64_t solution() {
+  uint64_t n = 600851475143;
 
-  for (int factor = 3; ; factor += 2) {
+  for (uint64_t factor = 3; ; factor += 2) {
     while (n % factor == 0)
       n /= factor;
 
@@ -19,7 +20,7 @@ int solution() {
 
 int main(int argc, char *argv[]) {
   if (argc == 2 && strcmp(argv[1], "-a") == 0) {
-    printf("%d\n", solution());
+    printf("%lu\n", solution());
     return 0;
   }
 

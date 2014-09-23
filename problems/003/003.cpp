@@ -1,3 +1,4 @@
+#include<cstdint>
 #include<cstring>
 #include<ctime>
 #include<iostream>
@@ -5,10 +6,10 @@
 
 using namespace std;
 
-int solution() {
-  long n = 600851475143;
+uint64_t solution() {
+  uint64_t n = 600851475143;
 
-  for (int factor = 3; ; factor += 2) {
+  for (uint64_t factor = 3; ; factor += 2) {
     while (n % factor == 0)
       n /= factor;
 

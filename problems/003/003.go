@@ -6,10 +6,10 @@ import "os"
 import "strconv"
 import "time"
 
-func solution() int {
-    n := 600851475143
+func solution() uint64 {
+    n := uint64(600851475143)
 
-    for factor := 3; ; factor += 2 {
+    for factor := uint64(3); ; factor += 2 {
         for n % factor == 0 {
             n /= factor
         }

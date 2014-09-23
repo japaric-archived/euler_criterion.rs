@@ -5,7 +5,7 @@ use std::io::stdio;
 use std::iter;
 use std::os;
 
-fn solution() -> uint {
+fn solution() -> u64 {
     let mut n = 600_851_475_143;
 
     for factor in iter::count(3, 2) {
