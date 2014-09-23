@@ -4,9 +4,9 @@ extern crate time;
 use std::io::stdio;
 use std::os;
 
-static PERIMETER: uint = 1_000;
+static PERIMETER: u32 = 1_000;
 
-fn solution() -> uint {
+fn solution() -> u32 {
     for c in range(PERIMETER / 3 + 1, PERIMETER / 2) {
         for b in range((PERIMETER - c) / 2 + 1, c) {
             let a = PERIMETER - b - c;

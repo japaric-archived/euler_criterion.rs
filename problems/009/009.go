@@ -6,8 +6,8 @@ import "os"
 import "strconv"
 import "time"
 
-func solution() int {
-    perimeter := 1000
+func solution() uint32 {
+    perimeter := uint32(1000)
 
     for c := perimeter / 3 + 1; c < perimeter / 2; c++ {
         for b := (perimeter - c) / 2 + 1; b < c; b++ {
@@ -19,6 +19,7 @@ func solution() int {
         }
     }
 
+    // UNREACHABLE
     return 0
 }
 

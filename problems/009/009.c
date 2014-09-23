@@ -1,3 +1,4 @@
+#include<stdint.h>
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -5,16 +6,16 @@
 
 #define PERIMETER 1000
 
-int solution() {
-  for (int c = PERIMETER / 3 + 1; c < PERIMETER / 2; c++)
-    for (int b = (PERIMETER - c) / 2 + 1; b < c; b++) {
-      int a = PERIMETER - b - c;
+uint32_t solution() {
+  for (uint32_t c = PERIMETER / 3 + 1; c < PERIMETER / 2; c++)
+    for (uint32_t b = (PERIMETER - c) / 2 + 1; b < c; b++) {
+      uint32_t a = PERIMETER - b - c;
 
       if (a * a + b * b == c * c)
         return a * b * c;
     }
 
-  // XXX Don't let the compiler optimize this function away
+  // DON'T OPTIMIZE ME AWAY!
   asm("");
 
   return 0;
