@@ -2,21 +2,21 @@ extern crate test;
 extern crate time;
 
 use std::char;
-use std::io::{stdio,File};
+use std::io::{stdio, File};
 use std::os;
 
 static WINDOW: uint = 13;
 
-fn solution(contents: &str) -> uint {
-    let (mut digits, mut max, mut pos) = ([0u8, ..WINDOW], 0, 0);
+fn solution(contents: &str) -> u64 {
+    let (mut digits, mut max, mut pos) = ([0, ..WINDOW], 0, 0);
 
     for digit in contents.as_slice().chars().filter_map(|c| char::to_digit(c, 10)) {
-        digits[pos] = digit as u8;
+        digits[pos] = digit as u64;
 
-        let prod = digits.iter().fold(1, |p, &f| p * f as uint);
+        let product = digits.iter().fold(1, |product, &digit| product * digit);
 
-        if prod > max {
-            max = prod;
+        if product > max {
+            max = product;
         }
 
         pos = (pos + 1) % WINDOW;

@@ -7,16 +7,16 @@ import "os"
 import "strconv"
 import "time"
 
-func solution(str []byte) int {
-    digits, max, pos := [13]byte {}, 0, 0
+func solution(str []byte) uint64 {
+    digits, max, pos := [13]uint64 {}, uint64(0), 0
 
     for _, element := range str {
         if element != '\n' {
-            digits[pos] = element - '0'
+            digits[pos] = uint64(element - '0')
 
-            p := 1
+            p := uint64(1)
             for _, digit := range digits {
-                p *= int(digit)
+                p *= digit
             }
 
             if p > max {

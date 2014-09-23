@@ -6,7 +6,7 @@
 
 #define WINDOW 13
 
-uint64_t product(char *digits) {
+uint64_t product(uint64_t *digits) {
   uint64_t p = 1;
 
   for (int i = 0; i < WINDOW; i++)
@@ -16,8 +16,8 @@ uint64_t product(char *digits) {
 }
 
 uint64_t solution(char *string) {
-  char digits[WINDOW] = { 0 };
   int pos = 0;
+  uint64_t digits[WINDOW] = { 0 };
   uint64_t max = 0;
 
   int i = 0;
