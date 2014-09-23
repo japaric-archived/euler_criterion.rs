@@ -25,15 +25,15 @@ impl Problem {
         }
     }
 
-    pub fn answer<'a>(&'a self) -> &'a str {
+    pub fn answer(&self) -> &str {
         self.answer.as_slice()
     }
 
-    pub fn directory<'a>(&'a self) -> &'a Path {
+    pub fn directory(&self) -> &Path {
         &self.directory
     }
 
-    pub fn id<'a>(&'a self) -> &'a str {
+    pub fn id(&self) -> &str {
         self.id.as_slice()
     }
 }

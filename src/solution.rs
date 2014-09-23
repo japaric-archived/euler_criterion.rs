@@ -75,15 +75,15 @@ impl<'l, 'p> Solution<'l, 'p> {
         }
     }
 
-    pub fn language(&self) -> &'l Language {
+    pub fn language(&self) -> &Language {
         self.language
     }
 
-    pub fn problem(&self) -> &'p Problem {
+    pub fn problem(&self) -> &Problem {
         self.problem
     }
 
-    pub fn source<'a>(&'a self) -> &'a Path {
+    pub fn source(&self) -> &Path {
         &self.source
     }
 }

@@ -14,19 +14,19 @@ pub struct Language {
 }
 
 impl Language {
-    pub fn compiler<'a>(&'a self) -> Option<&'a Compiler> {
+    pub fn compiler(&self) -> Option<&Compiler> {
         self.compiler.as_ref()
     }
 
-    pub fn extension<'a>(&'a self) -> &'a str {
+    pub fn extension(&self) -> &str {
         self.extension.as_slice()
     }
 
-    pub fn interpreter<'a>(&'a self) -> Option<&'a Interpreter> {
+    pub fn interpreter(&self) -> Option<&Interpreter> {
         self.interpreter.as_ref()
     }
 
-    pub fn name<'a>(&'a self) -> &'a str {
+    pub fn name(&self) -> &str {
         self.name.as_slice()
     }
 }
