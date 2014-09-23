@@ -17,6 +17,8 @@ Raw data (estimates of the mean/median/etc, all missing units are nanoseconds):
 [See the raw directory][raw]
 (This is just a fraction of the data that criterion generates)
 
+The CPU used for the benchmark: See [The cpu file][cpu]
+
 Details (which compiler/interpreter/flags) about the benchmarked languages:
 [See the languages directory][languages]
 
@@ -44,6 +46,7 @@ license.
 
 See LICENSE-APACHE and LICENSE-MIT for more details.
 
+[cpu]: /cpu
 [criterion]: https://github.com/japaric/criterion.rs
 [euler]: https://projecteuler.net/problems
 [languages]: /languages/rust.json

@@ -5,7 +5,8 @@ extern crate criterion;
 extern crate serialize;
 
 use criterion::Criterion;
-use std::io::{UserDir, fs};
+use std::io::{Command, File, UserDir, fs};
+use std::str;
 
 use executable::Executable;
 use problem::Problem;
@@ -18,8 +19,29 @@ mod language;
 mod problem;
 mod solution;
 
+fn lscpu() {
+    match Command::new("lscpu").output() {
+        Err(_) => fail!("Couldn't spawn `lscpu`"),
+        Ok(po) => match str::from_utf8(po.output[]) {
+            None => fail!("Couldn't parse the output of `lscpu`"),
+            Some(output) => {
+                let s = output.lines().filter(|line| {
+                    !line.starts_with("CPU MHz:")
+                }).collect::<Vec<_>>().connect("\n");
+
+                match File::create(&Path::new("lscpu")).write_str(s.as_slice()) {
+                    Err(_) => fail!("Couln't write to the cpu file"),
+                    Ok(_) => {},
+                }
+            }
+        },
+    }
+}
+
 fn main() {
     let languages = language::all();
+
+    lscpu();
 
     for problem in fs::readdir(&Path::new("problems")).unwrap().into_iter().filter_map(|dir| {
         Problem::new(dir)
