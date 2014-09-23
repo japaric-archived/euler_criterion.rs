@@ -4,23 +4,23 @@ extern crate time;
 use std::io::stdio;
 use std::os;
 
-fn solution() -> uint {
-    let mut sum = 0;
+fn solution() -> u32 {
+    use std::iter::AdditiveIterator;
 
-    for x in range(0, 1_000) {
-        if x % 3 == 0 || x % 5 == 0 {
-            sum += x;
-        }
-    }
-
-    sum
+    range(0u32, 1_000).filter(|x| x % 3 == 0 || x % 5 == 0).sum()
 }
 
-// XXX Shorter, but 10% slower
-//fn solution() -> uint {
-    //use std::iter::AdditiveIterator;
+// XXX "Imperative" style, roughly the same speed
+//fn solution() -> u32 {
+    //let mut sum = 0;
 
-    //range(0, 1_000u).filter(|x| x % 3 == 0 || x % 5 == 0).sum()
+    //for x in range(0, 1_000) {
+        //if x % 3 == 0 || x % 5 == 0 {
+            //sum += x;
+        //}
+    //}
+
+    //sum
 //}
 
 fn main() {

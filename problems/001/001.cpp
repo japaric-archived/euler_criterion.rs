@@ -1,3 +1,4 @@
+#include<cstdint>
 #include<cstring>
 #include<ctime>
 #include<iostream>
@@ -5,13 +6,13 @@
 
 using namespace std;
 
-int solution() {
+uint32_t solution() {
   // DON'T OPTIMIZE THIS AWAY!
   asm("");
 
-  int sum = 0;
+  uint32_t sum = 0;
 
-  for (int i = 0; i < 1000; i++)
+  for (uint32_t i = 0; i < 1000; i++)
     if (i % 3 == 0 || i % 5 == 0)
       sum += i;
 
