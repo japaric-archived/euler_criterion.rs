@@ -1,3 +1,4 @@
+![][badge]
 [![Build Status][status]](https://travis-ci.org/japaric/euler_criterion.rs)
 
 # euler_criterion.rs
@@ -46,6 +47,7 @@ license.
 
 See LICENSE-APACHE and LICENSE-MIT for more details.
 
+[badge]: https://projecteuler.net/profile/japaric.png
 [cpu]: /cpu
 [criterion]: https://github.com/japaric/criterion.rs
 [euler]: https://projecteuler.net/problems
