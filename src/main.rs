@@ -21,7 +21,7 @@ mod solution;
 fn main() {
     let languages = language::all();
 
-    for problem in fs::readdir(&Path::new("problems")).unwrap().move_iter().filter_map(|dir| {
+    for problem in fs::readdir(&Path::new("problems")).unwrap().into_iter().filter_map(|dir| {
         Problem::new(dir)
     }) {
         let mut processed = 0u;
