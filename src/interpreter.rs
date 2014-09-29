@@ -1,5 +1,5 @@
 use std::io::process::{Command, ProcessOutput};
-use std::os;
+use std::{os, str};
 
 #[deriving(Decodable)]
 pub struct Interpreter {
@@ -29,9 +29,9 @@ impl Interpreter {
         match cmd.output() {
             Err(_) => fail!("Couldn't get version of {}", self.command),
             Ok(ProcessOutput { status: exit, output: out, error: err }) => if exit.success() {
-                self.version =
-                    String::from_utf8(out).unwrap().
-                        append(String::from_utf8(err).unwrap().as_slice());
+                let mut v = String::from_utf8(out).unwrap();
+                v.push_str(str::from_utf8(err[]).unwrap());
+                self.version = v;
             } else {
                 fail!("{}:\n{}", cmd, String::from_utf8(err).unwrap());
             }

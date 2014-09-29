@@ -29,18 +29,24 @@ impl<'l, 'p> Solution<'l, 'p> {
 
                     None
                 },
-                Ok(string) => {
+                Ok(mut string) => {
                     let hash_dir = Path::new(".hashes");
                     fs::mkdir_recursive(&hash_dir, UserDir).ok().
                         expect("Couldn't create .hashes directory");
 
-                    let string = match language.compiler() {
-                        Some(compiler) => string.append(compiler.version()),
+                    let mut string = match language.compiler() {
+                        Some(compiler) => {
+                            string.push_str(compiler.version());
+                            string
+                        },
                         None => string,
                     };
 
                     let string = match language.interpreter() {
-                        Some(interpreter) => string.append(interpreter.version()),
+                        Some(interpreter) => {
+                            string.push_str(interpreter.version());
+                            string
+                        },
                         None => string,
                     };
 
