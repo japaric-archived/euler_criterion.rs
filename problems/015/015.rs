@@ -1,3 +1,5 @@
+#![feature(slicing_syntax)]
+
 extern crate test;
 extern crate time;
 
@@ -21,12 +23,12 @@ fn solution() -> u64 {
 
 fn main() {
     match os::args()[] {
-        [_, ref flag] if flag.as_slice() == "-a" => return println!("{}", solution()),
+        [_, ref flag] if flag[] == "-a" => return println!("{}", solution()),
         _ => {},
     }
 
     for line in stdio::stdin().lines() {
-        let iters: u64 = from_str(line.unwrap().as_slice().trim()).unwrap();
+        let iters: u64 = from_str(line.unwrap()[].trim()).unwrap();
 
         let start = time::precise_time_ns();
         for _ in range(0, iters) {

@@ -1,5 +1,5 @@
 use criterion::Criterion;
-use std::io::{fs, TempDir, UserDir};
+use std::io::{USER_DIR, TempDir, fs};
 use std::io::process::{Command, InheritFd, ProcessOutput};
 
 use solution::Solution;
@@ -61,7 +61,7 @@ impl<'s, 'l, 'p> Executable<'s, 'l, 'p> {
         let from = Path::new(format!(".criterion/{}/{}/new/estimates.json", pid, lang));
         let to = Path::new(format!("raw/{}/{}", pid, lang));
 
-        fs::mkdir_recursive(&to, UserDir).ok().expect("Couldn't create raw directory");
+        fs::mkdir_recursive(&to, USER_DIR).ok().expect("Couldn't create raw directory");
 
         fs::copy(&from, &to.join(from.filename().unwrap())).
             ok().expect("Couldn't copy estimates.json");

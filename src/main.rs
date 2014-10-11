@@ -1,12 +1,12 @@
 #![deny(warnings)]
-#![feature(phase)]
+#![feature(phase, slicing_syntax)]
 
 #[phase(plugin, link)] extern crate log;
 extern crate criterion;
 extern crate serialize;
 
 use criterion::Criterion;
-use std::io::{Command, File, UserDir, fs};
+use std::io::{USER_DIR, Command, File, fs};
 use std::str;
 
 use executable::Executable;
@@ -68,7 +68,7 @@ fn main() {
             let summary_plot = Path::new(".criterion").join(pid).join("summary/new/medians.svg");
             let plots_dir = Path::new("plots");
 
-            fs::mkdir_recursive(&plots_dir, UserDir).ok().
+            fs::mkdir_recursive(&plots_dir, USER_DIR).ok().
                 expect("Couldn't create the plots directory");
             fs::copy(&summary_plot, &plots_dir.join(pid).with_extension("svg")).ok().
                 expect("Couldn't copy summary plot to the plots directory");
