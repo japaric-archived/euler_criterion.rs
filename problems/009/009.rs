@@ -6,7 +6,7 @@ extern crate time;
 use std::io::stdio;
 use std::os;
 
-static PERIMETER: u32 = 1_000;
+const PERIMETER: u32 = 1_000;
 
 fn solution() -> u32 {
     for c in range(PERIMETER / 3 + 1, PERIMETER / 2) {

@@ -6,7 +6,7 @@ extern crate time;
 use std::io::stdio;
 use std::os;
 
-static LIMIT: uint = 1_000_000;
+const LIMIT: uint = 1_000_000;
 
 fn solution() -> uint {
     let mut lengths = Vec::from_elem(LIMIT + 1, 0);

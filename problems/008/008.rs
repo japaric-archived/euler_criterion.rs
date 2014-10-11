@@ -7,7 +7,7 @@ use std::char;
 use std::io::{stdio, File};
 use std::os;
 
-static WINDOW: uint = 13;
+const WINDOW: uint = 13;
 
 fn solution(contents: &str) -> u64 {
     let (mut digits, mut max, mut pos) = ([0, ..WINDOW], 0, 0);

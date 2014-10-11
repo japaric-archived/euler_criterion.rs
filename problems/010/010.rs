@@ -8,8 +8,8 @@ use std::io::stdio;
 use std::iter;
 use std::os;
 
-static LIMIT: uint = 2_000_000;
-static SIZE: uint = (LIMIT - 1) / 2;
+const LIMIT: uint = 2_000_000;
+const SIZE: uint = (LIMIT - 1) / 2;
 
 fn solution() -> uint {
     let mut sieve = Bitv::with_capacity(SIZE, false);

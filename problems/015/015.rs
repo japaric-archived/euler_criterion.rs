@@ -6,8 +6,8 @@ extern crate time;
 use std::io::stdio;
 use std::os;
 
-static SIZE: uint = 20;
-static STRIDE: uint = SIZE + 1;
+const SIZE: uint = 20;
+const STRIDE: uint = SIZE + 1;
 
 fn solution() -> u64 {
     let mut grid = [1, ..STRIDE * STRIDE];
