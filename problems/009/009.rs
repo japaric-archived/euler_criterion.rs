@@ -1,10 +1,12 @@
+#![feature(slicing_syntax)]
+
 extern crate test;
 extern crate time;
 
 use std::io::stdio;
 use std::os;
 
-static PERIMETER: u32 = 1_000;
+const PERIMETER: u32 = 1_000;
 
 fn solution() -> u32 {
     for c in range(PERIMETER / 3 + 1, PERIMETER / 2) {
@@ -22,12 +24,12 @@ fn solution() -> u32 {
 
 fn main() {
     match os::args()[] {
-        [_, ref flag] if flag.as_slice() == "-a" => return println!("{}", solution()),
+        [_, ref flag] if flag[] == "-a" => return println!("{}", solution()),
         _ => {},
     }
 
     for line in stdio::stdin().lines() {
-        let iters: u64 = from_str(line.unwrap().as_slice().trim()).unwrap();
+        let iters: u64 = from_str(line.unwrap()[].trim()).unwrap();
 
         let start = time::precise_time_ns();
         for _ in range(0, iters) {

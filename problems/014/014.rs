@@ -1,10 +1,12 @@
+#![feature(slicing_syntax)]
+
 extern crate test;
 extern crate time;
 
 use std::io::stdio;
 use std::os;
 
-static LIMIT: uint = 1_000_000;
+const LIMIT: uint = 1_000_000;
 
 fn solution() -> uint {
     let mut lengths = Vec::from_elem(LIMIT + 1, 0);
@@ -31,12 +33,12 @@ fn collatz_length(n: uint, lengths: &mut [uint]) -> uint {
 
 fn main() {
     match os::args()[] {
-        [_, ref flag] if flag.as_slice() == "-a" => return println!("{}", solution()),
+        [_, ref flag] if flag[] == "-a" => return println!("{}", solution()),
         _ => {},
     }
 
     for line in stdio::stdin().lines() {
-        let iters: u64 = from_str(line.unwrap().as_slice().trim()).unwrap();
+        let iters: u64 = from_str(line.unwrap()[].trim()).unwrap();
 
         let start = time::precise_time_ns();
         for _ in range(0, iters) {

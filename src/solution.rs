@@ -1,6 +1,6 @@
 use std::hash;
 use std::io::fs::PathExtensions;
-use std::io::{File, UserDir, fs};
+use std::io::{USER_DIR, File, fs};
 
 use language::Language;
 use problem::Problem;
@@ -31,7 +31,7 @@ impl<'l, 'p> Solution<'l, 'p> {
                 },
                 Ok(mut string) => {
                     let hash_dir = Path::new(".hashes");
-                    fs::mkdir_recursive(&hash_dir, UserDir).ok().
+                    fs::mkdir_recursive(&hash_dir, USER_DIR).ok().
                         expect("Couldn't create .hashes directory");
 
                     let mut string = match language.compiler() {

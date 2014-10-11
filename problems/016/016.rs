@@ -1,3 +1,5 @@
+#![feature(slicing_syntax)]
+
 extern crate num;
 extern crate test;
 extern crate time;
@@ -9,8 +11,7 @@ use std::{char, os};
 
 fn solution() -> uint {
     std::num::pow(2u.to_biguint().unwrap(), 1000).
-        to_string().
-        as_slice().
+        to_string()[].
         chars().
         filter_map(|c| char::to_digit(c, 10)).
         sum()
@@ -18,12 +19,12 @@ fn solution() -> uint {
 
 fn main() {
     match os::args()[] {
-        [_, ref flag] if flag.as_slice() == "-a" => return println!("{}", solution()),
+        [_, ref flag] if flag[] == "-a" => return println!("{}", solution()),
         _ => {},
     }
 
     for line in stdio::stdin().lines() {
-        let iters: u64 = from_str(line.unwrap().as_slice().trim()).unwrap();
+        let iters: u64 = from_str(line.unwrap()[].trim()).unwrap();
 
         let start = time::precise_time_ns();
         for _ in range(0, iters) {

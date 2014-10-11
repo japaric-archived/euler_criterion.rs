@@ -1,6 +1,6 @@
 use serialize::json;
 use std::io::fs::PathExtensions;
-use std::io::{fs, File, UserDir};
+use std::io::{USER_DIR, File, fs};
 
 use compiler::Compiler;
 use interpreter::Interpreter;
@@ -33,7 +33,7 @@ impl Language {
 
 pub fn all() -> Vec<Language> {
     let version_dir = Path::new("versions");
-    fs::mkdir_recursive(&version_dir, UserDir).ok().
+    fs::mkdir_recursive(&version_dir, USER_DIR).ok().
         expect("Couldn't create the versions directory");
 
     fs::readdir(&Path::new("languages")).
