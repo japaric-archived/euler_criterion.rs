@@ -65,7 +65,8 @@ fn main() {
             Criterion::default().summarize(problem.id());
 
             let pid = problem.id();
-            let summary_plot = Path::new(".criterion").join(pid).join("summary/new/medians.svg");
+            let summary_plot =
+                Path::new(format!(".criterion/{}/summary/new/violin_plot.svg", pid));
             let plots_dir = Path::new("plots");
 
             fs::mkdir_recursive(&plots_dir, USER_DIR).ok().
