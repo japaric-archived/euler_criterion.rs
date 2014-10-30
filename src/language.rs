@@ -45,9 +45,9 @@ pub fn all() -> Vec<Language> {
             let file_ = file.display();
 
             match File::open(file).read_to_string() {
-                Err(e) => fail!("`{}`: {}", file_, e),
+                Err(e) => panic!("`{}`: {}", file_, e),
                 Ok(string) => match json::decode::<Language>(string.as_slice()) {
-                    Err(e) => fail!("`{}`: {}", file_, e),
+                    Err(e) => panic!("`{}`: {}", file_, e),
                     Ok(mut language) => {
                         info!("Found {}", language.name);
 
@@ -76,7 +76,7 @@ pub fn all() -> Vec<Language> {
                         }
 
                         if language.compiler.is_none() && language.interpreter.is_none() {
-                            fail!("{}: No compiler and no interpreter found", language.name)
+                            panic!("{}: No compiler and no interpreter found", language.name)
                         }
 
                         language

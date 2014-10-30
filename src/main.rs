@@ -22,16 +22,16 @@ mod solution;
 
 fn lscpu() {
     match Command::new("lscpu").output() {
-        Err(_) => fail!("Couldn't spawn `lscpu`"),
+        Err(_) => panic!("Couldn't spawn `lscpu`"),
         Ok(po) => match str::from_utf8(po.output[]) {
-            None => fail!("Couldn't parse the output of `lscpu`"),
+            None => panic!("Couldn't parse the output of `lscpu`"),
             Some(output) => {
                 let s = output.lines().filter(|line| {
                     !line.starts_with("CPU MHz:")
                 }).collect::<Vec<_>>().connect("\n");
 
                 match File::create(&Path::new("lscpu")).write_str(s.as_slice()) {
-                    Err(_) => fail!("Couln't write to the cpu file"),
+                    Err(_) => panic!("Couln't write to the cpu file"),
                     Ok(_) => {},
                 }
             }
