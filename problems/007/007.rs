@@ -19,7 +19,7 @@ impl Iterator<u32> for Primes {
 
             let q = self.n;
 
-            match self.map.pop(&q) {
+            match self.map.remove(&q) {
                 None => {
                     self.map.insert(q * q, q);
 
