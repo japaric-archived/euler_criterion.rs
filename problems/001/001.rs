@@ -9,7 +9,7 @@ use std::os;
 fn solution() -> u32 {
     use std::iter::AdditiveIterator;
 
-    range(0u32, 1_000).filter(|x| x % 3 == 0 || x % 5 == 0).sum()
+    range(0u32, 1_000).filter(|&x| x % 3 == 0 || x % 5 == 0).sum()
 }
 
 // XXX "Imperative" style, roughly the same speed
