@@ -6,6 +6,8 @@ extern crate time;
 use std::io::{stdio, File};
 use std::os;
 
+use Direction::{South, SouthEast, SouthWest, West};
+
 enum Direction {
     South,
     SouthEast,
