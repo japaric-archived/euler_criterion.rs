@@ -60,7 +60,7 @@ fn main() {
         _ => {},
     }
 
-    for line in stdio::stdin().lines() {
+    for line in stdio::stdin().lock().lines() {
         let iters: u64 = from_str(line.unwrap()[].trim()).unwrap();
 
         let start = time::precise_time_ns();
