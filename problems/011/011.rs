@@ -8,6 +8,7 @@ use std::os;
 
 use Direction::{South, SouthEast, SouthWest, West};
 
+#[deriving(Copy)]
 enum Direction {
     South,
     SouthEast,
