@@ -73,7 +73,7 @@ impl<'s, 'l, 'p> Executable<'s, 'l, 'p> {
         let pid = self.solution.problem().id();
         let pid_dir = self.solution.problem().directory();
 
-        info!("{}: Validating {}", pid, name)
+        info!("{}: Validating {}", pid, name);
         match self.cmd.clone().cwd(pid_dir).arg("-a").stderr(InheritFd(2)).output() {
             Err(_) => panic!("Runtime error"),
             Ok(ProcessOutput { output: out, .. }) => Some(out[] == answer)
