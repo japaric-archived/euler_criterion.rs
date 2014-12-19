@@ -5,6 +5,3 @@ authors = ["Jorge Aparicio <japaric@linux.com>"]
 
 [dependencies.criterion]
 git = "https://github.com/japaric/criterion.rs"
-
-[profile.dev]
-debug = false
