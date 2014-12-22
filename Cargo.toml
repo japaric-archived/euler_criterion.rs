@@ -8,3 +8,6 @@ log = "*"
 
 [dependencies.criterion]
 git = "https://github.com/japaric/criterion.rs"
+
+[profile.dev]
+debug = false
