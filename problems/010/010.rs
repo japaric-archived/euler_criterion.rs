@@ -12,11 +12,11 @@ const LIMIT: uint = 2_000_000;
 const SIZE: uint = (LIMIT - 1) / 2;
 
 fn solution() -> uint {
-    let mut sieve = Bitv::with_capacity(SIZE, false);
+    let mut sieve = Bitv::from_elem(SIZE, false);
     let mut sum = 2;
 
     for i in range(0, SIZE) {
-        if !sieve.get(i) {
+        if !sieve[i] {
             let p = 2 * i + 3;
 
             sum += p;
