@@ -24,8 +24,8 @@ fn lscpu() {
     match Command::new("lscpu").output() {
         Err(_) => panic!("Couldn't spawn `lscpu`"),
         Ok(po) => match str::from_utf8(po.output[]) {
-            None => panic!("Couldn't parse the output of `lscpu`"),
-            Some(output) => {
+            Err(_) => panic!("Couldn't parse the output of `lscpu`"),
+            Ok(output) => {
                 let s = output.lines().filter(|line| {
                     !line.starts_with("CPU MHz:")
                 }).collect::<Vec<_>>().connect("\n");
