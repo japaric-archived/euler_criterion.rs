@@ -3,8 +3,11 @@ name = "euler_criterion"
 version = "0.0.0"
 authors = ["Jorge Aparicio <japaric@linux.com>"]
 
-[dependencies]
-log = "*"
-
 [dependencies.criterion]
 git = "https://github.com/japaric/criterion.rs"
+
+[dependencies.log]
+git = "https://github.com/rust-lang/log"
+
+[dependencies.rustc-serialize]
+git = "https://github.com/rust-lang/rustc-serialize"

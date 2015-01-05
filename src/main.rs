@@ -1,9 +1,9 @@
 #![deny(warnings)]
-#![feature(phase, slicing_syntax)]
+#![feature(old_orphan_check, phase, slicing_syntax)]
 
 #[phase(plugin, link)] extern crate log;
 extern crate criterion;
-extern crate serialize;
+extern crate "rustc-serialize" as rustc_serialize;
 
 use criterion::Criterion;
 use std::io::{USER_DIR, Command, File, fs};

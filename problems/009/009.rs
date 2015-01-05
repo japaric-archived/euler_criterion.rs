@@ -29,7 +29,7 @@ fn main() {
     }
 
     for line in stdio::stdin().lock().lines() {
-        let iters: u64 = from_str(line.unwrap()[].trim()).unwrap();
+        let iters: u64 = line.unwrap()[].trim().parse().unwrap();
 
         let start = time::precise_time_ns();
         for _ in range(0, iters) {

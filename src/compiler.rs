@@ -2,7 +2,7 @@ use std::io::process::{Command, InheritFd, ProcessOutput};
 use std::io::{fs, TempDir};
 use std::str;
 
-#[deriving(Decodable)]
+#[derive(RustcDecodable)]
 pub struct Compiler {
     command: String,
     flags: Vec<String>,

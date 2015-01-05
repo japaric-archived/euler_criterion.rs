@@ -10,7 +10,7 @@ const SIZE: uint = 20;
 const STRIDE: uint = SIZE + 1;
 
 fn solution() -> u64 {
-    let mut grid = [1, ..STRIDE * STRIDE];
+    let mut grid = [1; STRIDE * STRIDE];
 
     for i in range(1, STRIDE) {
         for j in range(1, STRIDE) {
@@ -28,7 +28,7 @@ fn main() {
     }
 
     for line in stdio::stdin().lock().lines() {
-        let iters: u64 = from_str(line.unwrap()[].trim()).unwrap();
+        let iters: u64 = line.unwrap()[].trim().parse().unwrap();
 
         let start = time::precise_time_ns();
         for _ in range(0, iters) {

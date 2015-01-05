@@ -1,4 +1,4 @@
-#![feature(slicing_syntax)]
+#![feature(associated_types, slicing_syntax)]
 
 extern crate test;
 extern crate time;
@@ -12,7 +12,9 @@ struct Primes {
     n: u32,
 }
 
-impl Iterator<u32> for Primes {
+impl Iterator for Primes {
+    type Item = u32;
+
     fn next(&mut self) -> Option<u32> {
         loop {
             self.n += 1;
@@ -59,7 +61,7 @@ fn main() {
     }
 
     for line in stdio::stdin().lock().lines() {
-        let iters: u64 = from_str(line.unwrap()[].trim()).unwrap();
+        let iters: u64 = line.unwrap()[].trim().parse().unwrap();
 
         let start = time::precise_time_ns();
         for _ in range(0, iters) {

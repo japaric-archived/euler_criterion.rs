@@ -10,7 +10,7 @@ use std::os;
 const WINDOW: uint = 13;
 
 fn solution(contents: &str) -> u64 {
-    let (mut digits, mut max, mut pos) = ([0, ..WINDOW], 0, 0);
+    let (mut digits, mut max, mut pos) = ([0; WINDOW], 0, 0);
 
     for digit in contents[].chars().filter_map(|c| char::to_digit(c, 10)) {
         digits[pos] = digit as u64;
@@ -37,7 +37,7 @@ fn main() {
     }
 
     for line in stdio::stdin().lock().lines() {
-        let iters: u64 = from_str(line.unwrap()[].trim()).unwrap();
+        let iters: u64 = line.unwrap()[].trim().parse().unwrap();
 
         let start = time::precise_time_ns();
         for _ in range(0, iters) {

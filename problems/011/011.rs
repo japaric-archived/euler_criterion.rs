@@ -8,7 +8,7 @@ use std::os;
 
 use Direction::{South, SouthEast, SouthWest, West};
 
-#[deriving(Copy)]
+#[derive(Copy)]
 enum Direction {
     South,
     SouthEast,
@@ -43,7 +43,7 @@ impl Grid {
         let mut data = Vec::with_capacity(size * size);
         for line in grid.lines() {
             for word in line.words() {
-                data.push(from_str(word).unwrap());
+                data.push(word.parse().unwrap());
             }
         }
 
@@ -109,7 +109,7 @@ fn main() {
     }
 
     for line in stdio::stdin().lock().lines() {
-        let iters: u64 = from_str(line.unwrap()[].trim()).unwrap();
+        let iters: u64 = line.unwrap()[].trim().parse().unwrap();
 
         let start = time::precise_time_ns();
         for _ in range(0, iters) {

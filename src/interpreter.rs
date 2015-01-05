@@ -1,7 +1,7 @@
 use std::io::process::{Command, ProcessOutput};
 use std::{os, str};
 
-#[deriving(Decodable)]
+#[derive(RustcDecodable)]
 pub struct Interpreter {
     command: String,
     flags: Vec<String>,

@@ -1,11 +1,11 @@
-use serialize::json;
+use rustc_serialize::json;
 use std::io::fs::PathExtensions;
 use std::io::{USER_DIR, File, fs};
 
 use compiler::Compiler;
 use interpreter::Interpreter;
 
-#[deriving(Decodable)]
+#[derive(RustcDecodable)]
 pub struct Language {
     compiler: Option<Compiler>,
     extension: String,
