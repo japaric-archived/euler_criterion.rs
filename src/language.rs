@@ -1,6 +1,8 @@
+use std::fs::{File, PathExt, self};
+use std::io::{Read, Write};
+use std::path::Path;
+
 use rustc_serialize::json;
-use std::io::fs::PathExtensions;
-use std::io::{USER_DIR, File, fs};
 
 use compiler::Compiler;
 use interpreter::Interpreter;
@@ -33,20 +35,21 @@ impl Language {
 
 pub fn all() -> Vec<Language> {
     let version_dir = Path::new("versions");
-    fs::mkdir_recursive(&version_dir, USER_DIR).ok().
+    fs::create_dir_all(version_dir).ok().
         expect("Couldn't create the versions directory");
 
-    fs::readdir(&Path::new("languages")).
+    fs::read_dir(&Path::new("languages")).
         ok().
         expect("languages directory not found").
-        iter().
+        map(|entry| entry.unwrap().path()).
         filter(|file| file.is_file()).
         map(|file| {
             let file_ = file.display();
 
-            match File::open(file).read_to_string() {
+            let mut string = String::new();
+            match File::open(&file).and_then(|mut f| f.read_to_string(&mut string)) {
                 Err(e) => panic!("`{}`: {}", file_, e),
-                Ok(string) => match json::decode::<Language>(string.as_slice()) {
+                Ok(_) => match json::decode::<Language>(string.as_slice()) {
                     Err(e) => panic!("`{}`: {}", file_, e),
                     Ok(mut language) => {
                         info!("Found {}", language.name);
@@ -56,7 +59,9 @@ pub fn all() -> Vec<Language> {
                                 compiler.fetch_version();
 
                                 File::create(&version_dir.join(compiler.command())).
-                                    write_str(compiler.version()).
+                                    and_then(|mut f| {
+                                        f.write_all(compiler.version().as_bytes())
+                                    }).
                                     ok().
                                     expect("Couldn't write to versions directory");
                             },
@@ -68,7 +73,9 @@ pub fn all() -> Vec<Language> {
                                 interpreter.fetch_version();
 
                                 File::create(&version_dir.join(interpreter.command())).
-                                    write_str(interpreter.version()).
+                                    and_then(|mut f| {
+                                        f.write_all(interpreter.version().as_bytes())
+                                    }).
                                     ok().
                                     expect("Couldn't write to versions directory");
                             },

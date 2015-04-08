@@ -1,6 +1,8 @@
-use std::io::process::{Command, InheritFd, ProcessOutput};
-use std::io::{fs, TempDir};
-use std::str;
+use std::{fs, str};
+use std::path::{Path, PathBuf};
+use std::process::{Command, Output};
+
+use tempdir::TempDir;
 
 #[derive(RustcDecodable)]
 pub struct Compiler {
@@ -16,32 +18,29 @@ impl Compiler {
     }
 
     pub fn compile(&self, source: &Path) -> Option<CompilerOutput> {
-        let basename = source.filename_str().unwrap();
-        let filename = basename.split('.').next().unwrap();
+        let basename = source.file_name().unwrap();
+        let filename = source.file_stem().unwrap();
         let temp_dir = TempDir::new(self.command.as_slice()).unwrap();
 
         fs::copy(source, &temp_dir.path().join(basename)).ok().
             expect("Couldn't copy the source file");
 
         let mut cmd = Command::new(self.command.as_slice());
-        cmd.args(self.flags[]).
+        cmd.args(&self.flags).
             arg(basename).
-            cwd(temp_dir.path()).
-            stdout(InheritFd(1)).
-            stderr(InheritFd(2));
+            current_dir(temp_dir.path());
 
         match cmd.output() {
             Err(_) => None,
-            Ok(ProcessOutput { status: exit, .. }) => if exit.success() {
+            Ok(Output { status: exit, .. }) => if exit.success() {
                 Some(CompilerOutput {
-                    path: temp_dir.path().join(self.output.replace("*", filename)),
+                    path: temp_dir.path().join(self.output.replace("*", &filename.to_string_lossy())),
                     temp_dir: temp_dir,
                 })
             } else {
                 None
             },
         }
-
     }
 
     // Replaces the version flag field (e.g. `-v`) by its output (`rustc 0.12.0-pre`)
@@ -51,12 +50,12 @@ impl Compiler {
 
         match cmd.output() {
             Err(_) => panic!("Couldn't get version of {}", self.command),
-            Ok(ProcessOutput { status: exit, output: out, error: err }) => if exit.success() {
+            Ok(Output { status: exit, stdout: out, stderr: err }) => if exit.success() {
                 let mut v = String::from_utf8(out).unwrap();
-                v.push_str(str::from_utf8(err[]).unwrap());
+                v.push_str(str::from_utf8(&err).unwrap());
                 self.version = v;
             } else {
-                panic!("{}:\n{}", cmd, String::from_utf8(err).unwrap());
+                panic!("{:?}:\n{}", cmd, String::from_utf8(err).unwrap());
             }
         }
     }
@@ -67,13 +66,17 @@ impl Compiler {
 }
 
 struct CompilerOutput {
-    path: Path,
+    path: PathBuf,
     temp_dir: TempDir,
 }
 
 impl CompilerOutput {
-    pub fn command(&self) -> Command {
-        Command::new(&self.path)
+    pub fn command(&self) -> Box<Fn() -> Command> {
+        let path = self.path.to_path_buf();
+
+        Box::new(move || {
+            Command::new(&path)
+        })
     }
 
     pub fn temp_dir(self) -> TempDir {

@@ -6,8 +6,8 @@ authors = ["Jorge Aparicio <japaric@linux.com>"]
 [dependencies.criterion]
 git = "https://github.com/japaric/criterion.rs"
 
-[dependencies.log]
-git = "https://github.com/rust-lang/log"
-
-[dependencies.rustc-serialize]
-git = "https://github.com/rust-lang/rustc-serialize"
+[dependencies]
+env_logger = "*"
+log = "*"
+rustc-serialize = "*"
+tempdir = "*"

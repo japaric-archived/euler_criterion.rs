@@ -1,5 +1,6 @@
-use std::io::process::{Command, ProcessOutput};
-use std::{os, str};
+use std::path::Path;
+use std::process::{Command, Output};
+use std::{env, str};
 
 #[derive(RustcDecodable)]
 pub struct Interpreter {
@@ -13,12 +14,18 @@ impl Interpreter {
         self.command.as_slice()
     }
 
-    pub fn execute(&self, source: &Path) -> Command {
-        let cwd = os::getcwd().unwrap();
-        let mut cmd = Command::new(self.command.as_slice());
-        cmd.args(self.flags[]).arg(cwd.join(source));
+    pub fn execute(&self, source: &Path) -> Box<Fn() -> Command> {
+        let source = source.to_path_buf();
+        let flags = self.flags.clone();
+        let command = self.command.clone();
 
-        cmd
+        Box::new(move || {
+            let cwd = env::current_dir().unwrap();
+            let mut cmd = Command::new(&command);
+            cmd.args(&flags).arg(cwd.join(&source));
+
+            cmd
+        })
     }
 
     // Replaces the version flag field (e.g. `--version`) by its output (`Python 2.7.8`)
@@ -28,12 +35,12 @@ impl Interpreter {
 
         match cmd.output() {
             Err(_) => panic!("Couldn't get version of {}", self.command),
-            Ok(ProcessOutput { status: exit, output: out, error: err }) => if exit.success() {
+            Ok(Output { status: exit, stdout: out, stderr: err }) => if exit.success() {
                 let mut v = String::from_utf8(out).unwrap();
-                v.push_str(str::from_utf8(err[]).unwrap());
+                v.push_str(str::from_utf8(&err).unwrap());
                 self.version = v;
             } else {
-                panic!("{}:\n{}", cmd, String::from_utf8(err).unwrap());
+                panic!("{:?}:\n{}", cmd, String::from_utf8(err).unwrap());
             }
         }
     }

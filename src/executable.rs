@@ -1,11 +1,14 @@
+use std::fs;
+use std::path::{Path, PathBuf};
+use std::process::{Command, Output};
+
 use criterion::Criterion;
-use std::io::{USER_DIR, TempDir, fs};
-use std::io::process::{Command, InheritFd, ProcessOutput};
+use tempdir::TempDir;
 
 use solution::Solution;
 
 pub struct Executable<'s, 'l: 's, 'p: 's> {
-    cmd: Command,
+    cmd: Box<Fn() -> Command + 'static>,
     solution: &'s Solution<'l, 'p>,
     _temp_dir: Option<TempDir>,
 }
@@ -53,17 +56,19 @@ impl<'s, 'l, 'p> Executable<'s, 'l, 'p> {
         let pid_dir = self.solution.problem().directory();
 
         let id = format!("{}/{}", pid, language);
-        Criterion::default().bench_program(id.as_slice(), self.cmd.clone().cwd(pid_dir));
+        let mut cmd = (self.cmd)();
+        cmd.current_dir(pid_dir);
+        Criterion::default().bench_program(id.as_slice(), cmd);
 
         // Make raw data available
         let pid = self.solution.problem().id();
         let lang = self.solution.language().name();
-        let from = Path::new(format!(".criterion/{}/{}/new/estimates.json", pid, lang));
-        let to = Path::new(format!("raw/{}/{}", pid, lang));
+        let from = PathBuf::from(format!(".criterion/{}/{}/new/estimates.json", pid, lang));
+        let to = PathBuf::from(format!("raw/{}/{}", pid, lang));
 
-        fs::mkdir_recursive(&to, USER_DIR).ok().expect("Couldn't create raw directory");
+        fs::create_dir_all(&to).ok().expect("Couldn't create raw directory");
 
-        fs::copy(&from, &to.join(from.filename().unwrap())).
+        fs::copy(&from, &to.join(from.file_name().unwrap())).
             ok().expect("Couldn't copy estimates.json");
     }
 
@@ -74,9 +79,9 @@ impl<'s, 'l, 'p> Executable<'s, 'l, 'p> {
         let pid_dir = self.solution.problem().directory();
 
         info!("{}: Validating {}", pid, name);
-        match self.cmd.clone().cwd(pid_dir).arg("-a").stderr(InheritFd(2)).output() {
+        match (self.cmd)().current_dir(pid_dir).arg("-a").output() {
             Err(_) => panic!("Runtime error"),
-            Ok(ProcessOutput { output: out, .. }) => Some(out[] == answer)
+            Ok(Output { stdout: out, .. }) => Some(out == answer)
         }
     }
 }
