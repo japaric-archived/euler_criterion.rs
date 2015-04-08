@@ -1,0 +1,11 @@
+{
+  "compiler": {
+    "command": "crystal",
+    "flags": ["build"],
+    "output": "*",
+    "version": "--version"
+  },
+  "extension": "cr",
+  "interpreter": null,
+  "name": "Crystal"
+}
