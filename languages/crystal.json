@@ -1,7 +1,7 @@
 {
   "compiler": {
     "command": "crystal",
-    "flags": ["build"],
+    "flags": ["build","--release"],
     "output": "*",
     "version": "--version"
   },
