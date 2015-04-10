@@ -1,30 +1,21 @@
+#![feature(core)]
 #![feature(test)]
 
+extern crate num;
+
 fn solution() -> u32 {
-    fn is_palindrome(n: u32) -> bool {
-        let (mut reversed, mut temp) = (0, n);
+    use std::ops::Mul;
 
-        while temp != 0 {
-            reversed = 10 * reversed + temp % 10;
-            temp /= 10;
-        }
+    use num::One;
+    use num::bigint::{BigUint, ToBigUint};
 
-        reversed == n
-    }
-
-    let mut max = 0;
-
-    for a in 100..1_000 {
-        for b in 100..a {
-            let p = a * b;
-
-            if p > max && is_palindrome(p) {
-                max = p;
-            }
-        }
-    }
-
-    max
+    (2..100)
+        .map(|x| x.to_biguint().unwrap())
+        .fold(BigUint::one(), Mul::mul)
+        .to_string()
+        .chars()
+        .filter_map(|c| c.to_digit(10))
+        .sum()
 }
 
 fn main() {
@@ -58,4 +49,5 @@ fn main() {
 // Cargo.toml
 //
 // [dependencies]
+// num = "*"
 // time = "*"

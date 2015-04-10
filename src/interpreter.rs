@@ -1,51 +1,36 @@
-use std::path::Path;
-use std::process::{Command, Output};
-use std::{env, str};
+//! Interpreters
 
-#[derive(RustcDecodable)]
+use std::process::Command;
+
+use command::{Error, Run};
+
+/// An interpreter
+#[derive(Debug, RustcDecodable)]
 pub struct Interpreter {
+    /// Interpreter command: `python`
     command: String,
+    /// (Optimization) flags to pass to the interpreter: [`-O`]
     flags: Vec<String>,
+    /// Version flag: `--version`
     version: String,
 }
 
 impl Interpreter {
+    /// Returns the interpreter command
     pub fn command(&self) -> &str {
-        self.command.as_slice()
+        &self.command
     }
 
-    pub fn execute(&self, source: &Path) -> Box<Fn() -> Command> {
-        let source = source.to_path_buf();
-        let flags = self.flags.clone();
-        let command = self.command.clone();
-
-        Box::new(move || {
-            let cwd = env::current_dir().unwrap();
-            let mut cmd = Command::new(&command);
-            cmd.args(&flags).arg(cwd.join(&source));
-
-            cmd
-        })
+    /// Returns the flags that must be passed to interpreter
+    pub fn flags(&self) -> &[String] {
+        &self.flags
     }
 
-    // Replaces the version flag field (e.g. `--version`) by its output (`Python 2.7.8`)
-    pub fn fetch_version(&mut self) {
-        let mut cmd = Command::new(self.command.as_slice());
-        cmd.arg(self.version.as_slice());
-
-        match cmd.output() {
-            Err(_) => panic!("Couldn't get version of {}", self.command),
-            Ok(Output { status: exit, stdout: out, stderr: err }) => if exit.success() {
-                let mut v = String::from_utf8(out).unwrap();
-                v.push_str(str::from_utf8(&err).unwrap());
-                self.version = v;
-            } else {
-                panic!("{:?}:\n{}", cmd, String::from_utf8(err).unwrap());
-            }
-        }
-    }
-
-    pub fn version(&self) -> &str {
-        self.version.as_slice()
+    /// Returns the interpreter version
+    ///
+    /// This calls e.g. `python -V`. On success, a concatenation of `stdout` and `stderr` (in that
+    /// order) is returned.
+    pub fn version(&self) -> Result<Vec<u8>, Error> {
+        Command::new(&self.command).arg(&self.version).run(true)
     }
 }

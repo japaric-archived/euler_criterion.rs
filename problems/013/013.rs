@@ -1,30 +1,18 @@
 #![feature(test)]
 
-fn solution() -> u32 {
-    fn is_palindrome(n: u32) -> bool {
-        let (mut reversed, mut temp) = (0, n);
+extern crate num;
 
-        while temp != 0 {
-            reversed = 10 * reversed + temp % 10;
-            temp /= 10;
-        }
+fn solution(input: &str) -> String {
+    use std::ops::Add;
 
-        reversed == n
-    }
+    use num::{BigUint, Zero};
 
-    let mut max = 0;
-
-    for a in 100..1_000 {
-        for b in 100..a {
-            let p = a * b;
-
-            if p > max && is_palindrome(p) {
-                max = p;
-            }
-        }
-    }
-
-    max
+    input.
+        lines().
+        filter_map(|line| line.trim().parse::<BigUint>().ok()).
+        fold(BigUint::zero(), Add::add).
+        to_string()[0..10].
+        to_string()
 }
 
 fn main() {
@@ -33,11 +21,15 @@ fn main() {
 
     use std::env;
     use std::ffi::OsStr;
-    use std::io::{BufRead, self};
+    use std::fs::File;
+    use std::io::{BufRead, Read, self};
+
+    let mut input = String::new();
+    File::open("013.txt").unwrap().read_to_string(&mut input).unwrap();
 
     if let Some(arg) = env::args_os().skip(1).next() {
         if arg.as_os_str() == OsStr::new("-a") {
-            return println!("{}", solution())
+            return println!("{}", solution(&input))
         }
     }
 
@@ -47,7 +39,7 @@ fn main() {
 
         let start = time::precise_time_ns();
         for _ in (0..iters) {
-            test::black_box(solution());
+            test::black_box(solution(&input));
         }
         let end = time::precise_time_ns();
 
@@ -58,4 +50,5 @@ fn main() {
 // Cargo.toml
 //
 // [dependencies]
+// num = "*"
 // time = "*"

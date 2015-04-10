@@ -1,13 +1,14 @@
 [package]
-name = "euler_criterion"
+authors = ["Jorge Aparicio <japaricious@gmail.com>"]
+name = "euler"
 version = "0.0.0"
-authors = ["Jorge Aparicio <japaric@linux.com>"]
-
-[dependencies.criterion]
-git = "https://github.com/japaric/criterion.rs"
 
 [dependencies]
+debug_unreachable = "*"
 env_logger = "*"
 log = "*"
 rustc-serialize = "*"
 tempdir = "*"
+
+[dependencies.criterion]
+git = "https://github.com/japaric/criterion.rs"

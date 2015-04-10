@@ -1,11 +1,10 @@
 {
-  "compiler": {
-    "command": "rustc",
-    "flags": ["-O"],
-    "output": "*",
+  "compiler": null,
+  "extension": "rs",
+  "interpreter": {
+    "command": "rustic",
+    "flags": [],
     "version": "--version"
   },
-  "extension": "rs",
-  "interpreter": null,
   "name": "Rust"
 }

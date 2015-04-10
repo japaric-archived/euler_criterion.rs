@@ -1,44 +1,25 @@
-![][badge]
 [![Build Status][status]](https://travis-ci.org/japaric/euler_criterion.rs)
 
-# euler_criterion.rs
+# `euler_criterion.rs`
 
-This is testing ground for the "external benchmarking" feature of
-[criterion.rs][criterion].
+Benchmark Project Euler solutions written in several programming languages
+using [criterion.rs]
 
-Here I benchmark solutions to [Project Euler problems][euler] written in
+This is manily testing ground for the "external benchmarking" feature of
+[criterion.rs]
+
+Here I benchmark solutions to [Project Euler] problems written in
 several programming languages and (for now) **crudely** compare them in a
 single plot.
 
-## Contents
-
-Plot + source files: [See directories under the problems directory][problems]
-
-Raw data (estimates of the mean/median/etc, all missing units are nanoseconds):
-[See the raw directory][raw]
-(This is just a fraction of the data that criterion generates)
-
-The CPU used for the benchmark: See [The cpu file][cpu]
-
-Details (which compiler/interpreter/flags) about the benchmarked languages:
-[See the languages directory][languages]
-
-Version of each compiler/interpreter: [See the versions directory][versions] or
-run `head versions/*`
+## [Results]
 
 ## How do I repeat these benchmarks?
 
-`make && make bench`
+`make && ./bench.sh`
 
 Will run **ALL** the benchmarks, and generate lots of data and plots under the
-`.criterion` folder
-
-N.B. You'll need to source the answer files (`*.ans`) to every problem
-directory. This answer file must contain the correct answer to the Project
-Euler problem. Since you have the solutions at hand, you can generate the
-answers like this:
-
-`python problems/001/001.py -a > problems/001.ans`
+`output` folder
 
 ## License
 
@@ -47,12 +28,7 @@ license.
 
 See LICENSE-APACHE and LICENSE-MIT for more details.
 
-[badge]: https://projecteuler.net/profile/japaric.png
-[cpu]: /cpu
-[criterion]: https://github.com/japaric/criterion.rs
-[euler]: https://projecteuler.net/problems
-[languages]: /languages/rust.json
-[problems]: /problems/001
-[raw]: /raw/001/Rust/estimates.json
+[Project Euler]: https://projecteuler.net/problems
+[Results]: ../results
+[criterion.rs]: https://github.com/japaric/criterion.rs
 [status]: https://travis-ci.org/japaric/euler_criterion.rs.svg?branch=master
-[versions]: /versions/rustc
