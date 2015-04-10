@@ -1,30 +1,11 @@
 #![feature(test)]
 
-fn solution() -> u32 {
-    fn is_palindrome(n: u32) -> bool {
-        let (mut reversed, mut temp) = (0, n);
+extern crate num;
 
-        while temp != 0 {
-            reversed = 10 * reversed + temp % 10;
-            temp /= 10;
-        }
+fn solution() -> u64 {
+    use num::integer;
 
-        reversed == n
-    }
-
-    let mut max = 0;
-
-    for a in 100..1_000 {
-        for b in 100..a {
-            let p = a * b;
-
-            if p > max && is_palindrome(p) {
-                max = p;
-            }
-        }
-    }
-
-    max
+    (3..21).fold(2, |p, f| integer::lcm(p, f))
 }
 
 fn main() {
@@ -58,4 +39,5 @@ fn main() {
 // Cargo.toml
 //
 // [dependencies]
+// num = "*"
 // time = "*"

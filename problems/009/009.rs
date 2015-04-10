@@ -1,16 +1,14 @@
-#![feature(slicing_syntax)]
+#![feature(core)]
+#![feature(test)]
 
-extern crate test;
-extern crate time;
-
-use std::io::stdio;
-use std::os;
-
-const PERIMETER: u32 = 1_000;
+#[macro_use]
+extern crate debug_unreachable;
 
 fn solution() -> u32 {
-    for c in range(PERIMETER / 3 + 1, PERIMETER / 2) {
-        for b in range((PERIMETER - c) / 2 + 1, c) {
+    const PERIMETER: u32 = 1_000;
+
+    for c in PERIMETER / 3 + 1..PERIMETER / 2 {
+        for b in (PERIMETER - c) / 2 + 1..c {
             let a = PERIMETER - b - c;
 
             if a * a + b * b == c * c {
@@ -19,20 +17,31 @@ fn solution() -> u32 {
         }
     }
 
-    unreachable!();
+    unsafe {
+        debug_unreachable!();
+    }
 }
 
 fn main() {
-    match os::args()[] {
-        [_, ref flag] if flag[] == "-a" => return println!("{}", solution()),
-        _ => {},
+    extern crate test;
+    extern crate time;
+
+    use std::env;
+    use std::ffi::OsStr;
+    use std::io::{BufRead, self};
+
+    if let Some(arg) = env::args_os().skip(1).next() {
+        if arg.as_os_str() == OsStr::new("-a") {
+            return println!("{}", solution())
+        }
     }
 
-    for line in stdio::stdin().lock().lines() {
-        let iters: u64 = line.unwrap()[].trim().parse().unwrap();
+    let stdin = io::stdin();
+    for line in stdin.lock().lines() {
+        let iters: u64 = line.unwrap().trim().parse().unwrap();
 
         let start = time::precise_time_ns();
-        for _ in range(0, iters) {
+        for _ in (0..iters) {
             test::black_box(solution());
         }
         let end = time::precise_time_ns();
@@ -40,3 +49,9 @@ fn main() {
         println!("{}", end - start);
     }
 }
+
+// Cargo.toml
+//
+// [dependencies]
+// debug_unreachable = "*"
+// time = "*"

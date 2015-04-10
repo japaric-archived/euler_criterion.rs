@@ -4,7 +4,7 @@
   "interpreter": {
     "command": "python2",
     "flags": ["-O"],
-    "version": "--version"
+    "version": "-V"
   },
   "name": "Python2"
 }

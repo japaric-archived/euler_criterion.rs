@@ -1,6 +1,5 @@
-*.ans
-.criterion/*
-.hashes/*
 Cargo.lock
-node_modules/*
-target/*
+node_modules
+output
+rustic
+target

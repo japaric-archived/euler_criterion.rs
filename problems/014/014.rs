@@ -1,47 +1,60 @@
-#![feature(slicing_syntax)]
+#![feature(core)]
+#![feature(test)]
 
-extern crate test;
-extern crate time;
+extern crate cast;
 
-use std::io::stdio;
-use std::os;
+use cast::From;
 
-const LIMIT: uint = 1_000_000;
+fn solution() -> u64 {
+    use std::iter;
 
-fn solution() -> uint {
-    let mut lengths = Vec::from_elem(LIMIT + 1, 0);
-    let lengths = lengths.as_mut_slice();
+    fn collatz_length(n: u64, lengths: &mut [u64]) -> u64 {
+        match lengths.get(usize::from(n)) {
+            Some(&length) if length != 0 => length,
+            _ => {
+                let length = 1 + collatz_length(if n % 2 == 0 {
+                    n / 2
+                } else {
+                    3 * n + 1
+                }, lengths);
+
+                if let Some(n) = lengths.get_mut(usize::from(n)) {
+                    *n = length;
+                }
+
+                length
+            },
+        }
+    }
+
+    const LIMIT: usize = 1_000_000;
+
+    let ref mut lengths = iter::repeat(0).take(LIMIT).collect::<Vec<_>>();
     lengths[1] = 1;
 
-    range(2, LIMIT + 1).max_by(|&n| collatz_length(n, lengths)).unwrap()
-}
-
-fn collatz_length(n: uint, lengths: &mut [uint]) -> uint {
-    match lengths.get(n) {
-        Some(&length) if length != 0 => length,
-        _ => {
-            let length = 1 + collatz_length(if n % 2 == 0 { n / 2 } else { 3 * n + 1 }, lengths);
-
-            if n < lengths.len() {
-                lengths[n] = length;
-            }
-
-            length
-        },
-    }
+    (2..u64::from(LIMIT + 1)).max_by(|&n| collatz_length(n, lengths)).unwrap()
 }
 
 fn main() {
-    match os::args()[] {
-        [_, ref flag] if flag[] == "-a" => return println!("{}", solution()),
-        _ => {},
+    extern crate test;
+    extern crate time;
+
+    use std::env;
+    use std::ffi::OsStr;
+    use std::io::{BufRead, self};
+
+    if let Some(arg) = env::args_os().skip(1).next() {
+        if arg.as_os_str() == OsStr::new("-a") {
+            return println!("{}", solution())
+        }
     }
 
-    for line in stdio::stdin().lock().lines() {
-        let iters: u64 = line.unwrap()[].trim().parse().unwrap();
+    let stdin = io::stdin();
+    for line in stdin.lock().lines() {
+        let iters: u64 = line.unwrap().trim().parse().unwrap();
 
         let start = time::precise_time_ns();
-        for _ in range(0, iters) {
+        for _ in (0..iters) {
             test::black_box(solution());
         }
         let end = time::precise_time_ns();
@@ -49,3 +62,11 @@ fn main() {
         println!("{}", end - start);
     }
 }
+
+// Cargo.toml
+//
+// [dependencies.cast]
+// git = "https://github.com/japaric/cast.rs"
+//
+// [dependencies]
+// time = "*"

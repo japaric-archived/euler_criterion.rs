@@ -6,7 +6,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - sudo apt-get install -qq gnuplot
+  - sudo apt-get install -qq libblas-dev gnuplot
 
 script:
   - make

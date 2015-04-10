@@ -4,11 +4,17 @@ srcs=$(shell find problems -name '*.rs')
 .PHONY: all bench test
 
 all:
+	if [ ! -d rustic ]; then git clone --depth 1 https://github.com/japaric/rustic; fi
 	cargo build --release
+	cd rustic && cargo build --release && cd ..
+
+clean:
+	cargo clean
+	rm -rf rustic
 
 bench:
-	RUST_LOG=euler_criterion=info cargo run --release
+	./bench.sh
 
-test:
-	$(foreach src,$(srcs),$(RUSTC_NT) $(src) || exit;)
+test: $(srcs)
+	./test-rust-solutions.sh
 	./check-line-length.sh

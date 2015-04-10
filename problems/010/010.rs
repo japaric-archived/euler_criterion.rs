@@ -1,30 +1,30 @@
-#![feature(slicing_syntax)]
+#![feature(collections)]
+#![feature(step_by)]
+#![feature(test)]
 
-extern crate test;
-extern crate time;
+extern crate cast;
 
-use std::collections::Bitv;
-use std::io::stdio;
-use std::iter;
-use std::os;
+use cast::From;
 
-const LIMIT: uint = 2_000_000;
-const SIZE: uint = (LIMIT - 1) / 2;
+fn solution() -> u64 {
+    use std::collections::BitVec;
 
-fn solution() -> uint {
-    let mut sieve = Bitv::from_elem(SIZE, false);
+    const LIMIT: usize = 2_000_000;
+    const SIZE: usize = (LIMIT - 1) / 2;
+
+    let mut sieve = BitVec::from_elem(SIZE, false);
     let mut sum = 2;
 
-    for i in range(0, SIZE) {
+    for i in 0..SIZE {
         if !sieve[i] {
-            let p = 2 * i + 3;
+            let p = 2 * u64::from(i) + 3;
 
             sum += p;
 
-            for j in iter::range_step(p * p, LIMIT, 2 * p) {
+            for j in (p * p..u64::from(LIMIT)).step_by(2 * p) {
                 let j = (j - 3) / 2;
 
-                sieve.set(j, true);
+                sieve.set(usize::from(j), true);
             }
         }
     }
@@ -33,16 +33,25 @@ fn solution() -> uint {
 }
 
 fn main() {
-    match os::args()[] {
-        [_, ref flag] if flag[] == "-a" => return println!("{}", solution()),
-        _ => {},
+    extern crate test;
+    extern crate time;
+
+    use std::env;
+    use std::ffi::OsStr;
+    use std::io::{BufRead, self};
+
+    if let Some(arg) = env::args_os().skip(1).next() {
+        if arg.as_os_str() == OsStr::new("-a") {
+            return println!("{}", solution())
+        }
     }
 
-    for line in stdio::stdin().lock().lines() {
-        let iters: u64 = line.unwrap()[].trim().parse().unwrap();
+    let stdin = io::stdin();
+    for line in stdin.lock().lines() {
+        let iters: u64 = line.unwrap().trim().parse().unwrap();
 
         let start = time::precise_time_ns();
-        for _ in range(0, iters) {
+        for _ in (0..iters) {
             test::black_box(solution());
         }
         let end = time::precise_time_ns();
@@ -50,3 +59,11 @@ fn main() {
         println!("{}", end - start);
     }
 }
+
+// Cargo.toml
+//
+// [dependencies]
+// time = "*"
+//
+// [dependencies.cast]
+// git = "https://github.com/japaric/cast.rs"

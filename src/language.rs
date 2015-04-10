@@ -1,13 +1,18 @@
-use std::fs::{File, PathExt, self};
-use std::io::{Read, Write};
+//! Programming languages
+
+use std::ffi::OsStr;
+use std::fs::{File, ReadDir, self};
+use std::io::{Read, Write, self};
 use std::path::Path;
 
 use rustc_serialize::json;
 
 use compiler::Compiler;
+use context::Context;
 use interpreter::Interpreter;
 
-#[derive(RustcDecodable)]
+/// A programming languages
+#[derive(Debug, RustcDecodable)]
 pub struct Language {
     compiler: Option<Compiler>,
     extension: String,
@@ -16,80 +21,150 @@ pub struct Language {
 }
 
 impl Language {
+    /// Returns the language compiler, if any
     pub fn compiler(&self) -> Option<&Compiler> {
         self.compiler.as_ref()
     }
 
+    /// Returns the extension used by this language source files
     pub fn extension(&self) -> &str {
-        self.extension.as_slice()
+        &self.extension
     }
 
+    /// Returns the language interpreter, if any
     pub fn interpreter(&self) -> Option<&Interpreter> {
         self.interpreter.as_ref()
     }
 
+    /// Returns the name of the language
     pub fn name(&self) -> &str {
-        self.name.as_slice()
+        &self.name
     }
 }
 
-pub fn all() -> Vec<Language> {
-    let version_dir = Path::new("versions");
-    fs::create_dir_all(version_dir).ok().
-        expect("Couldn't create the versions directory");
+/// An iterator over the `language` directory
+pub struct Languages<'a> {
+    iter: ReadDir,
+    version_dir: &'a Path,
+}
 
-    fs::read_dir(&Path::new("languages")).
-        ok().
-        expect("languages directory not found").
-        map(|entry| entry.unwrap().path()).
-        filter(|file| file.is_file()).
-        map(|file| {
-            let file_ = file.display();
+impl<'a> Languages<'a> {
+    /// Retrieves all the programming languages specified in the `language` directory
+    pub fn all(ctxt: &'a Context) -> io::Result<Languages<'a>> {
+        fs::read_dir(ctxt.language_dir()).map(|iter| {
+            Languages {
+                iter: iter,
+                version_dir: ctxt.version_dir(),
+            }
+        })
+    }
+}
+
+impl<'a> Iterator for Languages<'a> {
+    type Item = Language;
+
+    fn next(&mut self) -> Option<Language> {
+        // Prefixed debug message
+        macro_rules! _debug {
+            ($template:expr, $($args:expr),*) => {
+                debug!(concat!("Languages::next: ", $template), $($args),*)
+            }
+        }
+
+        for entry in &mut self.iter {
+            let entry = match entry {
+                Err(e) => {
+                    _debug!("skipping entry ({})", e);
+                    continue
+                },
+                Ok(entry) => entry,
+            };
+
+            let ref path = entry.path();
+
+            if path.extension() != Some(OsStr::new("json")) {
+                _debug!("{:?} doesn't have json extension, skipping", path);
+                continue
+            }
 
             let mut string = String::new();
-            match File::open(&file).and_then(|mut f| f.read_to_string(&mut string)) {
-                Err(e) => panic!("`{}`: {}", file_, e),
-                Ok(_) => match json::decode::<Language>(string.as_slice()) {
-                    Err(e) => panic!("`{}`: {}", file_, e),
-                    Ok(mut language) => {
-                        info!("Found {}", language.name);
+            if let Err(e) = (|| {
+                try!(File::open(path)).read_to_string(&mut string)
+            })() {
+                _debug!("error reading {:?} ({})", path, e);
+                continue
+            }
 
-                        match language.compiler {
-                            Some(ref mut compiler) => {
-                                compiler.fetch_version();
+            let language: Language = match json::decode(&string) {
+                Err(e) => {
+                    _debug!("error decoding {:?} ({})", path, e);
+                    continue
+                },
+                Ok(language) => language,
+            };
 
-                                File::create(&version_dir.join(compiler.command())).
-                                    and_then(|mut f| {
-                                        f.write_all(compiler.version().as_bytes())
-                                    }).
-                                    ok().
-                                    expect("Couldn't write to versions directory");
-                            },
-                            None => {},
+            _debug!("found {}", language.name);
+
+            if language.compiler.is_none() && language.interpreter.is_none() {
+                _debug!("error {} doesn't have a compiler or interpreter", language.name);
+                continue
+            }
+
+            if let Some(ref compiler) = language.compiler {
+                use command::Error::*;
+
+                match compiler.version() {
+                    Err(Io(e)) => {
+                        _debug!("couldn't get {} compiler version ({})", language.name, e);
+                        continue
+                    },
+                    Err(Failed(code, _)) => {
+                        _debug!("couldn't get {} compiler version ({})", language.name, code);
+                        continue
+                    },
+                    Ok(ref version) => {
+                        let ref version_file = self.version_dir.join(compiler.command());
+
+                        if let Err(e) = (|| {
+                            try!(File::create(version_file)).write_all(version)
+                        })() {
+                            _debug!("couldn't write {:?} ({})", version_file, e);
+                            continue
                         }
-
-                        match language.interpreter {
-                            Some(ref mut interpreter) => {
-                                interpreter.fetch_version();
-
-                                File::create(&version_dir.join(interpreter.command())).
-                                    and_then(|mut f| {
-                                        f.write_all(interpreter.version().as_bytes())
-                                    }).
-                                    ok().
-                                    expect("Couldn't write to versions directory");
-                            },
-                            None => {},
-                        }
-
-                        if language.compiler.is_none() && language.interpreter.is_none() {
-                            panic!("{}: No compiler and no interpreter found", language.name)
-                        }
-
-                        language
                     },
                 }
             }
-        }).
-        collect()
+
+            if let Some(ref interpreter) = language.interpreter {
+                use command::Error::*;
+
+                match interpreter.version() {
+                    Err(Io(e)) => {
+                        _debug!("couldn't get {} interpreter version ({})", language.name, e);
+                        continue
+                    },
+                    Err(Failed(code, _)) => {
+                        _debug!("couldn't get {} interpreter version ({})", language.name, code);
+                        continue
+                    },
+                    Ok(ref version) => {
+                        let ref version_file = self.version_dir.join(interpreter.command());
+
+                        if let Err(e) = (|| {
+                            try!(File::create(version_file)).write_all(version)
+                        })() {
+                            _debug!("couldn't write {:?} ({})", version_file, e);
+                            continue
+                        }
+                    },
+                }
+            }
+
+            _debug!("{:?}", language);
+
+            return Some(language)
+        }
+
+        None
+    }
 }

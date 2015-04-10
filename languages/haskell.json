@@ -1,8 +1,8 @@
 {
   "compiler": {
     "command": "ghc",
-    "flags": ["-O"],
-    "output": "*",
+    "flags": ["-O", "-outputdir", ".", "-o", "Main"],
+    "output": "Main",
     "version": "--version"
   },
   "extension": "hs",

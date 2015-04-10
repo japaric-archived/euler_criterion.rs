@@ -1,85 +1,91 @@
-use std::{fs, str};
-use std::path::{Path, PathBuf};
-use std::process::{Command, Output};
+//! Compilers
 
+use std::path::{Path, PathBuf};
+use std::process::Command;
+
+use command::{Error, Run};
 use tempdir::TempDir;
 
-#[derive(RustcDecodable)]
+use context::Context;
+
+/// A compiler
+#[derive(Debug, RustcDecodable)]
 pub struct Compiler {
+    /// Compiler command: `gcc`, `rustc`
     command: String,
+    /// (Optimization) flags to pass to the compiler: [`-O`]
     flags: Vec<String>,
+    /// Template of the output file: `a.out`, `*`
     output: String,
+    /// Version flag: `-v`, `-V`
     version: String,
 }
 
 impl Compiler {
+    /// Returns the compiler command
     pub fn command(&self) -> &str {
-        self.command.as_slice()
+        &self.command
     }
 
-    pub fn compile(&self, source: &Path) -> Option<CompilerOutput> {
-        let basename = source.file_name().unwrap();
-        let filename = source.file_stem().unwrap();
-        let temp_dir = TempDir::new(self.command.as_slice()).unwrap();
+    /// Compile `source` in a temporary directory, and return the compiler output
+    pub fn compile(&self, source: &Path, ctxt: &Context) -> Result<Output, Error> {
+        const PREFIX: &'static str = "euler";
 
-        fs::copy(source, &temp_dir.path().join(basename)).ok().
-            expect("Couldn't copy the source file");
-
-        let mut cmd = Command::new(self.command.as_slice());
-        cmd.args(&self.flags).
-            arg(basename).
-            current_dir(temp_dir.path());
-
-        match cmd.output() {
-            Err(_) => None,
-            Ok(Output { status: exit, .. }) => if exit.success() {
-                Some(CompilerOutput {
-                    path: temp_dir.path().join(self.output.replace("*", &filename.to_string_lossy())),
-                    temp_dir: temp_dir,
-                })
-            } else {
-                None
-            },
-        }
-    }
-
-    // Replaces the version flag field (e.g. `-v`) by its output (`rustc 0.12.0-pre`)
-    pub fn fetch_version(&mut self) {
-        let mut cmd = Command::new(self.command.as_slice());
-        cmd.arg(self.version.as_slice());
-
-        match cmd.output() {
-            Err(_) => panic!("Couldn't get version of {}", self.command),
-            Ok(Output { status: exit, stdout: out, stderr: err }) => if exit.success() {
-                let mut v = String::from_utf8(out).unwrap();
-                v.push_str(str::from_utf8(&err).unwrap());
-                self.version = v;
-            } else {
-                panic!("{:?}:\n{}", cmd, String::from_utf8(err).unwrap());
+        // Prefixed debug message
+        macro_rules! _debug {
+            ($template:expr, $($args:expr),*) => {
+                debug!(concat!("Compiler::compile: ", $template), $($args),*)
             }
         }
-    }
 
-    pub fn version(&self) -> &str {
-        self.version.as_slice()
-    }
-}
+        let temp_dir = try!(TempDir::new_in(ctxt.temp_dir(), PREFIX));
+        let mut cmd = Command::new(&self.command);
+        cmd.args(&self.flags);
+        cmd.arg(source);
+        cmd.current_dir(temp_dir.path());
 
-struct CompilerOutput {
-    path: PathBuf,
-    temp_dir: TempDir,
-}
+        _debug!("run `{:?}` at {:?}", cmd, temp_dir.path());
+        try!(cmd.run(false));
 
-impl CompilerOutput {
-    pub fn command(&self) -> Box<Fn() -> Command> {
-        let path = self.path.to_path_buf();
+        let path = if self.output.contains('*') {
+            let stem = source.file_stem().unwrap_or_else(|| unsafe {
+                debug_unreachable!();
+            });
 
-        Box::new(move || {
-            Command::new(&path)
+            // XXX This shouldn't use `to_string_lossy()`, but there is no way to use `replace`
+            // with `OsStr`s
+            temp_dir.path().join(self.output.replace("*", &stem.to_string_lossy()))
+        } else {
+            temp_dir.path().join(&self.output)
+        };
+
+        Ok(Output {
+            path: path,
+            _temp_dir: temp_dir,
         })
     }
 
-    pub fn temp_dir(self) -> TempDir {
-        self.temp_dir
+    /// Returns the compiler version
+    ///
+    /// This calls e.g. `rustc -V`. On success, a concatenation of `stdout` and `stderr` (in that
+    /// order) is returned.
+    pub fn version(&self) -> Result<Vec<u8>, Error> {
+        Command::new(&self.command).arg(&self.version).run(true)
+    }
+}
+
+/// Compiler output
+///
+/// The compiler output lives in a temporary directory. Both the output and the temporary directory
+/// will be deleted when this object goes out of scope.
+pub struct Output {
+    _temp_dir: TempDir,
+    path: PathBuf,
+}
+
+impl Output {
+    /// Returns the absolute path to the main artifact
+    pub fn path(&self) -> &Path {
+        &self.path
     }
 }

@@ -1,22 +1,15 @@
-#![feature(slicing_syntax)]
-
-extern crate test;
-extern crate time;
-
-use std::io::stdio;
-use std::os;
+#![feature(core)]
+#![feature(test)]
 
 fn solution() -> u32 {
-    use std::iter::AdditiveIterator;
-
-    range(0u32, 1_000).filter(|&x| x % 3 == 0 || x % 5 == 0).sum()
+    (0..1_000).filter(|&x| x % 3 == 0 || x % 5 == 0).sum()
 }
 
 // XXX "Imperative" style, roughly the same speed
 //fn solution() -> u32 {
     //let mut sum = 0;
 
-    //for x in range(0, 1_000) {
+    //for x in (0..1_000) {
         //if x % 3 == 0 || x % 5 == 0 {
             //sum += x;
         //}
@@ -26,16 +19,25 @@ fn solution() -> u32 {
 //}
 
 fn main() {
-    match os::args()[] {
-        [_, ref flag] if flag[] == "-a" => return println!("{}", solution()),
-        _ => {},
+    extern crate test;
+    extern crate time;
+
+    use std::env;
+    use std::ffi::OsStr;
+    use std::io::{BufRead, self};
+
+    if let Some(arg) = env::args_os().skip(1).next() {
+        if arg.as_os_str() == OsStr::new("-a") {
+            return println!("{}", solution())
+        }
     }
 
-    for line in stdio::stdin().lock().lines() {
-        let iters: u64 = line.unwrap()[].trim().parse().unwrap();
+    let stdin = io::stdin();
+    for line in stdin.lock().lines() {
+        let iters: u64 = line.unwrap().trim().parse().unwrap();
 
         let start = time::precise_time_ns();
-        for _ in range(0, iters) {
+        for _ in (0..iters) {
             test::black_box(solution());
         }
         let end = time::precise_time_ns();
@@ -43,3 +45,8 @@ fn main() {
         println!("{}", end - start);
     }
 }
+
+// Cargo.toml
+//
+// [dependencies]
+// time = "*"
