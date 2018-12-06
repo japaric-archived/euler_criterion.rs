@@ -3,4 +3,4 @@
 ![Estimates of the medians][1]
 
 [0]: https://projecteuler.net/problem=2
-[1]: https://rawgit.com/japaric/euler_criterion.rs/master/plots/002.svg
+[1]: https://cdn.jsdelivr.net/gh/japaric/euler_criterion.rs/plots/002.svg
